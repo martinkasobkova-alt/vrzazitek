@@ -2,12 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
 import ContactMapCard from '@/components/ContactMapCard';
+import { metadataFor } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'VR teambuilding pro firmy | Firemní akce ve virtuální realitě',
-  description: 'Teambuilding ve virtuální realitě: 50+ her, kooperativní mise, turnaje. Pro týmy 10–200 lidí. Doprava, instalace i obsluha v ceně. Praha a celá ČR.',
-  alternates: { canonical: 'https://www.vrzazitek.cz/teambuilding-ve-vr' },
-};
+export const metadata: Metadata = metadataFor('teambuilding-ve-vr');
 
 const benefits = [
   { icon: '🚀', title: 'Inovativní teambuilding', desc: 'Technologie přitahuje pozornost. Lidi to baví hned – bez složitého vysvětlování.' },
@@ -91,7 +88,7 @@ export default function Teambuilding() {
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
                 <img
                   src={images.heroTeam}
-                  alt="Tým při spolupráci – firemní teambuilding"
+                  alt="Firemní teambuilding ve virtuální realitě — týmová spolupráce a VR aktivity pro firmy"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
                 />
                 <div
@@ -125,7 +122,7 @@ export default function Teambuilding() {
                 { icon: '🎯', title: 'Zážitky pro tým', desc: 'Kooperace, soutěže, únikovky.' },
                 { icon: '🧑‍💼', title: 'Pro 10–200 lidí', desc: 'Rotace + turnajový režim.' },
               ].map((f, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={i * 40}>
                   <div style={{ fontSize: '1.6rem', marginBottom: '0.5rem' }}>{f.icon}</div>
                   <h3 style={{ fontSize: '1.05rem', marginBottom: '0.3rem' }}>{f.title}</h3>
                   <p>{f.desc}</p>
@@ -141,7 +138,7 @@ export default function Teambuilding() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: '10%', right: -100 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Proč VR</span>
               <h2>Proč je VR pro firmy <span className="gradient-text">ideální volba?</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -150,7 +147,7 @@ export default function Teambuilding() {
             </div>
             <div className="grid-4">
               {benefits.map((b, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={i * 30}>
                   <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{b.icon}</div>
                   <h3 style={{ fontSize: '1.05rem' }}>{b.title}</h3>
                   <p>{b.desc}</p>
@@ -168,7 +165,7 @@ export default function Teambuilding() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, bottom: -40, right: '8%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Aktivity</span>
               <h2>Vyberte si nejlepší <span className="gradient-text">VR aktivity.</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -177,11 +174,11 @@ export default function Teambuilding() {
             </div>
             <div className="grid-activities">
               {activities.map((a, i) => (
-                <div key={i} className="svc-card pillar-card occasion-tile">
+                <div key={i} className="svc-card pillar-card occasion-tile" data-sr data-sr-delay={i * 35}>
                   <img
                     className="pillar-card__bg"
                     src={a.image}
-                    alt=""
+                    alt={`${a.title} — VR teambuilding a firemní akce, VRzazitek`}
                     loading="lazy"
                     decoding="async"
                     aria-hidden
@@ -205,7 +202,7 @@ export default function Teambuilding() {
         <div className="orb orb-dark-purple" style={{ width: 300, height: 300, bottom: 0, right: '10%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Ceník</span>
               <h2>Ceník <span className="gradient-text-light">VR teambuildingu.</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -214,7 +211,7 @@ export default function Teambuilding() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'stretch' }}>
               {packages.map((pkg, i) => (
-                <div key={i} className={`price-card ${pkg.featured ? 'featured' : ''}`}>
+                <div key={i} className={`price-card ${pkg.featured ? 'featured' : ''}`} data-sr data-sr-delay={i * 45}>
                   {pkg.badge && <div className="price-badge">{pkg.badge}</div>}
                   <h3 style={{ fontSize: '1.25rem', marginBottom: '0.3rem' }}>{pkg.name}</h3>
                   <p className="text-muted" style={{ fontSize: '0.82rem', marginBottom: '1.25rem' }}>{pkg.subtitle}</p>
@@ -236,7 +233,7 @@ export default function Teambuilding() {
                 </div>
               ))}
             </div>
-            <div className="svc-card text-center" style={{ marginTop: '2rem', padding: '1.5rem 2rem' }}>
+            <div className="svc-card text-center" style={{ marginTop: '2rem', padding: '1.5rem 2rem' }} data-sr data-sr-delay={120}>
               💡 <strong>Máte větší tým nebo speciální požadavky?</strong>{' '}
               <span style={{ opacity: 0.88 }}>Uděláme nabídku na míru. Možnost rozšíření až na 10 headsetů.</span>
             </div>
@@ -249,12 +246,14 @@ export default function Teambuilding() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
           <div className="container split split-stack-title">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Pojďme se spojit</span>
               <h2 style={{ marginBottom: 0 }}>Poptat <span className="gradient-text">VR teambuilding.</span></h2>
             </div>
-            <ContactMapCard />
-            <div>
+            <div data-sr data-sr-delay={45}>
+              <ContactMapCard />
+            </div>
+            <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište město, termín a počet lidí. Pošleme rychlý návrh řešení a cenu.
               </p>

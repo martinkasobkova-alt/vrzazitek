@@ -80,7 +80,7 @@ main {
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; height: auto; display: block; }
 
-/* Block backgrounds */
+/* Block backgrounds — pouze overflow: hidden. Nepoužívat overflow-x + overflow-y: visible: u bloků by se overflow-y přepočítalo na auto a animace translate u reveal vytvořily druhý posuvník. */
 .block { position: relative; overflow: hidden; }
 .block-sky { background: var(--bg-sky); color: var(--text); }
 .block-paper { background: var(--bg-paper); color: var(--text); }
@@ -822,30 +822,34 @@ section {
 
 /*
  * Scroll reveal: před hydratací / bez sr-enabled jsou sekce plně vidět (žádný prázdný FOUC).
- * Po zapnutí html.sr-enabled skryjeme jen bloky bez .is-revealed; ScrollRevealProvider je přidá při scrollu.
+ * [data-scroll-reveal] = celé sekce; [data-sr] = karty / podbloky (stejná animace, jiný účel v HTML).
  */
 @media (prefers-reduced-motion: no-preference) {
-  html:not(.sr-enabled) [data-scroll-reveal] {
+  html:not(.sr-enabled) [data-scroll-reveal],
+  html:not(.sr-enabled) [data-sr] {
     opacity: 1;
     transform: none;
   }
 
-  html.sr-enabled [data-scroll-reveal]:not(.is-revealed) {
+  html.sr-enabled [data-scroll-reveal]:not(.is-revealed),
+  html.sr-enabled [data-sr]:not(.is-revealed) {
     opacity: 0;
-    transform: translate3d(0, 1.75rem, 0);
+    transform: translate3d(0, 0.7rem, 0);
   }
 
-  html.sr-enabled [data-scroll-reveal].is-revealed {
+  html.sr-enabled [data-scroll-reveal].is-revealed,
+  html.sr-enabled [data-sr].is-revealed {
     opacity: 1;
     transform: translate3d(0, 0, 0);
     transition:
-      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  [data-scroll-reveal] {
+  [data-scroll-reveal],
+  [data-sr] {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

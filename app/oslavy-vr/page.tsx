@@ -2,12 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
 import ContactMapCard from '@/components/ContactMapCard';
+import { metadataFor } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'VR oslavy a narozeniny v Praze | VR zážitek – přivezeme VR k vám',
-  description: 'Oslavte narozeniny, dětskou párty, rozlučku se svobodou nebo svatbu ve VR! Přivezeme vybavení, hry i obsluhu. Praha a celá ČR.',
-  alternates: { canonical: 'https://www.vrzazitek.cz/oslavy-vr' },
-};
+export const metadata: Metadata = metadataFor('oslavy-vr');
 
 const occasions = [
   {
@@ -98,7 +95,7 @@ export default function Oslavy() {
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
                 <img
                   src={images.heroParty}
-                  alt="Oslava a zábava – VR na párty nebo svatbu"
+                  alt="VR oslavy a narozeniny — Meta Quest na párty, svatbu a rozlučku, Praha a celá ČR"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
                 />
                 <div
@@ -135,7 +132,7 @@ export default function Oslavy() {
         <div className="orb orb-blue" style={{ width: 300, height: 300, top: '10%', left: -100 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Příležitosti</span>
               <h2>Pro jakou příležitost <span className="gradient-text">je VR ideální?</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -144,11 +141,11 @@ export default function Oslavy() {
             </div>
             <div className="grid-activities">
               {occasions.map((o, i) => (
-                <div key={i} className="svc-card pillar-card occasion-tile">
+                <div key={i} className="svc-card pillar-card occasion-tile" data-sr data-sr-delay={i * 35}>
                   <img
                     className="pillar-card__bg"
                     src={o.image}
-                    alt=""
+                    alt={`${o.title} — pronájem virtuální reality na oslavu, VRzazitek`}
                     loading="lazy"
                     decoding="async"
                     aria-hidden
@@ -171,13 +168,13 @@ export default function Oslavy() {
         <div className="orb orb-cyan" style={{ width: 350, height: 350, top: -80, right: '20%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Jak probíhá oslava</span>
               <h2>Přivezeme vybavení, <span className="gradient-text">vy se staráte o dort 🎂</span></h2>
             </div>
             <div className="grid-4">
               {howItWorks.map((h, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={i * 35}>
                   <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{h.icon}</div>
                   <h3 style={{ fontSize: '1.05rem' }}>{h.title}</h3>
                   <p>{h.desc}</p>
@@ -193,7 +190,7 @@ export default function Oslavy() {
         <div className="orb orb-purple" style={{ width: 300, height: 300, top: '10%', right: -100 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Ceník</span>
               <h2>Ceník <span className="gradient-text">VR oslav.</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -205,7 +202,7 @@ export default function Oslavy() {
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'stretch' }}>
               {packages.map((pkg, i) => (
-                <div key={i} className={`price-card ${pkg.featured ? 'featured' : ''}`}>
+                <div key={i} className={`price-card ${pkg.featured ? 'featured' : ''}`} data-sr data-sr-delay={i * 45}>
                   {pkg.badge && <div className="price-badge">{pkg.badge}</div>}
                   <h3 style={{ fontSize: '1.25rem', marginBottom: '0.3rem' }}>{pkg.name}</h3>
                   <p className="text-muted" style={{ fontSize: '0.82rem', marginBottom: '1.25rem' }}>{pkg.subtitle}</p>
@@ -237,13 +234,13 @@ export default function Oslavy() {
         <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Reference</span>
               <h2>Co říkají <span className="gradient-text-light">naši zákazníci.</span></h2>
             </div>
             <div className="testimonials-grid">
               {testimonials.map((t, i) => (
-                <div key={i} className="svc-card testimonial-card">
+                <div key={i} className="svc-card testimonial-card" data-sr data-sr-delay={i * 40}>
                   <div className="testimonial-stars" style={{ color: 'var(--cyan-bright)' }}>
                     ★★★★★
                   </div>
@@ -268,12 +265,14 @@ export default function Oslavy() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
           <div className="container split split-stack-title">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Pojďme se spojit</span>
               <h2 style={{ marginBottom: 0 }}>Objednejte VR <span className="gradient-text">na vaši oslavu.</span></h2>
             </div>
-            <ContactMapCard />
-            <div>
+            <div data-sr data-sr-delay={45}>
+              <ContactMapCard />
+            </div>
+            <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište termín a typ akce. Do 24 hodin pošleme nezávaznou nabídku na míru.
               </p>

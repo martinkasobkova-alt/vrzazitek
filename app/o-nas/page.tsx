@@ -2,12 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import ContactMapCard from '@/components/ContactMapCard';
 import { images } from '@/lib/images';
+import { metadataFor } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'O nás | VR Zážitek – experti na virtuální realitu a firemní eventy',
-  description: 'Jsme rodinná půjčovna virtuální reality. Zapůjčení VR, výběr her, doprava, instalace a podpora na místě. Kontakt: info@vrzazitek.cz, +420 604 160 718.',
-  alternates: { canonical: 'https://www.vrzazitek.cz/o-nas' },
-};
+export const metadata: Metadata = metadataFor('o-nas');
 
 function ContactHeroIllustration() {
   return (
@@ -133,7 +130,7 @@ export default function ONas() {
         <section>
           <div className="container">
             <div className="grid-3">
-              <div className="svc-card">
+              <div className="svc-card" data-sr data-sr-delay={0}>
                 <span className="tag-pill">Kontakt</span>
                 <h3 style={{ marginBottom: '0.75rem' }}>Zuzana Hrabalová</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -142,7 +139,7 @@ export default function ONas() {
                 </div>
               </div>
 
-              <div className="svc-card">
+              <div className="svc-card" data-sr data-sr-delay={40}>
                 <span className="tag-pill">Sídlo &amp; IČO</span>
                 <h3 style={{ marginBottom: '0.75rem' }}>VRzazitek.cz</h3>
                 <p className="text-dim" style={{ fontSize: '0.95rem', lineHeight: 1.7 }}>
@@ -152,7 +149,7 @@ export default function ONas() {
                 </p>
               </div>
 
-              <div className="svc-card">
+              <div className="svc-card" data-sr data-sr-delay={80}>
                 <span className="tag-pill">Osobní setkání</span>
                 <h3 style={{ marginBottom: '0.75rem' }}>Praha &amp; Beroun</h3>
                 <p className="text-dim" style={{ fontSize: '0.95rem', lineHeight: 1.7 }}>
@@ -172,13 +169,13 @@ export default function ONas() {
 
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '1.75rem' }}>
+            <div className="text-center" style={{ marginBottom: '1.75rem' }} data-sr>
               <span className="tag-pill">O nás</span>
               <h2 style={{ marginBottom: '0.75rem' }}>
                 Jsme rodinná <span className="gradient-text-light">půjčovna VR.</span>
               </h2>
             </div>
-            <div className="svc-card" style={{ width: '100%', padding: '2.5rem' }}>
+            <div className="svc-card" style={{ width: '100%', padding: '2.5rem' }} data-sr data-sr-delay={40}>
               <p style={{ fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '1.25rem' }}>
                 Jsme rodinná půjčovna virtuální reality složená z nadšenkyň do virtuálních světů a metaversu.
                 Naším cílem je dostat špičkový VR zážitek k lidem domů i na firemní akce —{' '}
@@ -198,6 +195,8 @@ export default function ONas() {
                 borderTop: '1px solid rgba(255, 255, 255, 0.12)',
                 marginBottom: '2rem',
               }}
+              data-sr
+              data-sr-delay={60}
             >
               <span className="tag-pill">Náš tým</span>
               <h2>Dvě role, <span className="gradient-text-light">jedna mise.</span></h2>
@@ -208,7 +207,7 @@ export default function ONas() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', gap: '2rem' }}>
               {/* Marťa */}
-              <div className="svc-card" style={{ padding: '2.5rem' }}>
+              <div className="svc-card" style={{ padding: '2.5rem' }} data-sr data-sr-delay={0}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
                   <div style={{
                     width: 72, height: 72, borderRadius: '50%',
@@ -217,7 +216,11 @@ export default function ONas() {
                     border: '2px solid rgba(103, 232, 249, 0.3)',
                     flexShrink: 0,
                   }}>
-                    <img src={images.teamMarta} alt="Marťa" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img
+                      src={images.teamMarta}
+                      alt="Marťa — spoluzakladatelka VRzazitek, PR, technika a VR obsah"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                   </div>
                   <div>
                     <h3 style={{ marginBottom: '0.2rem' }}>Marťa</h3>
@@ -239,7 +242,7 @@ export default function ONas() {
               </div>
 
               {/* Zuzka */}
-              <div className="svc-card" style={{ padding: '2.5rem' }}>
+              <div className="svc-card" style={{ padding: '2.5rem' }} data-sr data-sr-delay={50}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' }}>
                   <div style={{
                     width: 72, height: 72, borderRadius: '50%',
@@ -248,7 +251,11 @@ export default function ONas() {
                     border: '2px solid rgba(196, 181, 253, 0.3)',
                     flexShrink: 0,
                   }}>
-                    <img src={images.teamZuzka} alt="Zuzka" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <img
+                      src={images.teamZuzka}
+                      alt="Zuzka — spoluzakladatelka VRzazitek, komunikace s klienty a distribuce VR po ČR"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                   </div>
                   <div>
                     <h3 style={{ marginBottom: '0.2rem' }}>Zuzka</h3>
@@ -278,12 +285,14 @@ export default function ONas() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
           <div className="container split split-stack-title">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Pojďme se spojit</span>
               <h2 style={{ marginBottom: 0 }}>Rychle, jednoduše, <span className="gradient-text">spolehlivě.</span></h2>
             </div>
-            <ContactMapCard />
-            <div>
+            <div data-sr data-sr-delay={45}>
+              <ContactMapCard />
+            </div>
+            <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište nám detaily akce nebo typ zápůjčky. Obratem vám pošleme nezávaznou nabídku.
               </p>

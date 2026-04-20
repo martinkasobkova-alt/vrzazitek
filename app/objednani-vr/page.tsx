@@ -74,7 +74,7 @@ export default function Objednani() {
           <div className="container">
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: 1100, margin: '0 auto' }}>
               {/* Form */}
-              <div className="svc-card" style={{ padding: '2.5rem', background: 'rgba(255, 255, 255, 0.85)' }}>
+              <div className="svc-card" style={{ padding: '2.5rem', background: 'rgba(255, 255, 255, 0.85)' }} data-sr data-sr-delay={0}>
                 {sent ? (
                   <div className="text-center" style={{ padding: '2rem 0' }}>
                     <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✉️</div>
@@ -126,7 +126,7 @@ export default function Objednani() {
 
               {/* Info sidebar */}
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div className="svc-card">
+                <div className="svc-card" data-sr data-sr-delay={40}>
                   <h3 style={{ marginBottom: '1rem', color: 'var(--cyan)' }}>Rychlý kontakt</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
                     <a href="tel:+420604160718" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
@@ -165,7 +165,7 @@ export default function Objednani() {
                   </ul>
                 </div>
 
-                <div className="svc-card" style={{ background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.06), rgba(124, 58, 237, 0.04))', borderColor: 'var(--border-mid)' }}>
+                <div className="svc-card" style={{ background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.06), rgba(124, 58, 237, 0.04))', borderColor: 'var(--border-mid)' }} data-sr data-sr-delay={120}>
                   <h3 style={{ marginBottom: '0.6rem', fontSize: '1.05rem' }}>Chcete se podívat?</h3>
                   <p className="text-dim" style={{ fontSize: '0.88rem', marginBottom: '1rem' }}>
                     Projděte si naše služby a ceníky.

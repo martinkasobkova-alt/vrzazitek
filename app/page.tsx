@@ -1,14 +1,7 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
 import HeroVisual from '@/components/HeroVisual';
 import ContactMapCard from '@/components/ContactMapCard';
 import { images } from '@/lib/images';
-
-export const metadata: Metadata = {
-  title: 'Pronájem VR domů i pro firmy | Půjčovna Praha a Beroun od 999 Kč',
-  description: 'Firemní eventy, teambuildingy a VR domů. Přivezeme techniku, obsah i obsluhu — vy si užijete zážitek. Praha, Beroun, celá ČR.',
-  alternates: { canonical: 'https://www.vrzazitek.cz' },
-};
 
 export default function Home() {
   return (
@@ -92,12 +85,12 @@ export default function Home() {
         <section style={{ paddingTop: 'clamp(2rem, 4vw, 3.25rem)', paddingBottom: 'clamp(2.25rem, 4.5vw, 3.75rem)' }}>
           <div className="container">
             <div className="split split-stack-title split-stack-title--visual-top" style={{ gap: 'clamp(1.35rem, 3.5vw, 2.25rem)' }}>
-              <div>
+              <div data-sr>
                 <span className="tag-pill">Služby</span>
                 <h2 style={{ marginBottom: 0 }}>Co <span className="gradient-text">umíme</span> nejlépe.</h2>
               </div>
 
-              <div style={{ display: 'flex', minWidth: 0, width: '100%', alignSelf: 'start' }}>
+              <div data-sr data-sr-delay={40} style={{ display: 'flex', minWidth: 0, width: '100%', alignSelf: 'start' }}>
                 <div
                   className="media-card"
                   style={{
@@ -113,7 +106,7 @@ export default function Home() {
                 >
                   <img
                     src={images.whatWeDo}
-                    alt="VR event a technologie"
+                    alt="Firemní VR event a pronájem virtuální reality — headset, obsluha a technika na místě, VRzazitek.cz"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
                   />
                   <div style={{
@@ -124,7 +117,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div>
+              <div data-sr data-sr-delay={80}>
                 <p className="lead" style={{ marginBottom: '1.15rem' }}>
                   <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> zajišťuje virtuální realitu pro firmy i domácnosti v Praze, Berouně a po celé ČR. Specializujeme se na <strong style={{ color: 'var(--text)' }}>firemní eventy</strong>, konference, promo akce a <strong style={{ color: 'var(--text)' }}>teambuilding ve VR</strong>.
                 </p>
@@ -162,7 +155,7 @@ export default function Home() {
 
         <section style={{ paddingBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Tři pilíře VR služeb</span>
               <h2 style={{ maxWidth: 780, margin: '0 auto' }}>
                 Virtuální realita pro <span className="gradient-text">firmy i domů.</span>
@@ -170,11 +163,11 @@ export default function Home() {
             </div>
 
             <div className="grid-3">
-              <Link href="/vr-pro-firmy" className="svc-card pillar-card home-svc-tile">
+              <Link href="/vr-pro-firmy" className="svc-card pillar-card home-svc-tile" data-sr>
                 <img
                   className="pillar-card__bg"
                   src={images.pillarEventsVr}
-                  alt=""
+                  alt="Firemní eventy a konference ve virtuální realitě — VR zóna pro firmy"
                   loading="lazy"
                   decoding="async"
                   aria-hidden
@@ -191,11 +184,11 @@ export default function Home() {
                   <div className="home-svc-tile__cta">Zjistit více →</div>
                 </div>
               </Link>
-              <Link href="/teambuilding-ve-vr" className="svc-card pillar-card home-svc-tile">
+              <Link href="/teambuilding-ve-vr" className="svc-card pillar-card home-svc-tile" data-sr data-sr-delay={45}>
                 <img
                   className="pillar-card__bg"
                   src={images.homeTeambuildingTile}
-                  alt=""
+                  alt="VR teambuilding pro firmy — kooperativní hry a týmové mise"
                   loading="lazy"
                   decoding="async"
                   aria-hidden
@@ -212,11 +205,11 @@ export default function Home() {
                   <div className="home-svc-tile__cta">Zjistit více →</div>
                 </div>
               </Link>
-              <Link href="/zapujceni-vr" className="svc-card pillar-card home-svc-tile">
+              <Link href="/zapujceni-vr" className="svc-card pillar-card home-svc-tile" data-sr data-sr-delay={90}>
                 <img
                   className="pillar-card__bg"
                   src={images.heroHomeRental}
-                  alt=""
+                  alt="Pronájem VR domů — Meta Quest, zábava pro rodinu a párty"
                   loading="lazy"
                   decoding="async"
                   aria-hidden
@@ -251,7 +244,7 @@ export default function Home() {
           }}
         >
           <div className="container" style={{ maxWidth: 900 }}>
-            <div className="text-center" style={{ marginBottom: '2.25rem' }}>
+            <div className="text-center" style={{ marginBottom: '2.25rem' }} data-sr>
               <span className="tag-pill">FAQ</span>
               <h2>
                 <span className="gradient-text-light">Časté dotazy</span>
@@ -265,7 +258,7 @@ export default function Home() {
                 { q: 'Kolik lidí může VR vyzkoušet na akci?', a: 'Záleží na počtu headsetů a délce zážitku. Běžně to bývá desítky až stovky lidí během jednoho eventu.' },
                 { q: 'Jak velký prostor je potřeba pro VR?', a: 'Pro jeden headset obvykle stačí cca 2×2 m. Setup upravíme podle prostoru (konference, kancelář, sál).' },
               ].map((item, i) => (
-                <details key={i} className="svc-card" style={{ cursor: 'pointer', padding: '1.25rem 1.75rem' }}>
+                <details key={i} className="svc-card" style={{ cursor: 'pointer', padding: '1.25rem 1.75rem' }} data-sr data-sr-delay={Math.min(i * 35, 140)}>
                   <summary style={{ fontWeight: 600, fontSize: '1rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'var(--text-on-dark)' }}>
                     <span>{item.q}</span>
                     <span className="plus">+</span>
@@ -285,14 +278,16 @@ export default function Home() {
 
         <section>
           <div className="container split split-stack-title">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Pojďme se spojit</span>
               <h2 style={{ marginBottom: 0 }}>Chcete <span className="gradient-text">VR zážitek?</span></h2>
             </div>
 
-            <ContactMapCard />
+            <div data-sr data-sr-delay={45}>
+              <ContactMapCard />
+            </div>
 
-            <div>
+            <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište město, termín a počet lidí. Pošleme rychlý návrh řešení a cenu — obvykle do 24 hodin.
               </p>

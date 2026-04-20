@@ -2,12 +2,9 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
 import ContactMapCard from '@/components/ContactMapCard';
+import { metadataFor } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Zapůjčení VR headsetů domů | Pronájem virtuální reality – VR Zážitek',
-  description: 'Pronájem virtuální reality pro domácnosti. Meta Quest 2 od 999 Kč, Meta Quest 3 od 1 299 Kč. Doručíme kurýrem po celé ČR nebo osobně v Praze a Berouně.',
-  alternates: { canonical: 'https://www.vrzazitek.cz/zapujceni-vr' },
-};
+export const metadata: Metadata = metadataFor('zapujceni-vr');
 
 const steps = [
   { icon: '📅', title: 'Délka pronájmu', desc: 'VR si můžete půjčit na víkend nebo libovolně dlouhou dobu. Vše je plně flexibilní dle vašich možností.' },
@@ -59,9 +56,9 @@ const extrasPrices = [
   { label: 'Dárkový voucher', price: 'Dle výběru' },
 ];
 
-function PriceTable({ title, rows }: { title: string; rows: { label: string; price: string }[] }) {
+function PriceTable({ title, rows, revealIndex = 0 }: { title: string; rows: { label: string; price: string }[]; revealIndex?: number }) {
   return (
-    <div className="svc-card" style={{ padding: '1.75rem' }}>
+    <div className="svc-card" style={{ padding: '1.75rem' }} data-sr data-sr-delay={revealIndex * 40}>
       <h3 style={{ marginBottom: '1.25rem', color: 'var(--cyan)' }}>{title}</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
         {rows.map((r, i) => (
@@ -106,7 +103,7 @@ export default function Zapujceni() {
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
                 <img
                   src={images.heroHomeRental}
-                  alt="Domácí zábava s VR – pronájem virtuální reality"
+                  alt="Půjčovna VR domů — Meta Quest, rodinná zábava a pronájem virtuální reality Praha, Beroun, ČR"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
                 />
                 <div
@@ -161,14 +158,14 @@ export default function Zapujceni() {
         <div className="orb orb-blue" style={{ width: 300, height: 300, top: '10%', right: -100 }}></div>
         <section>
           <div className="container split split-stack-title split-stack-title--visual-top">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Proč VR domů</span>
               <h2 style={{ marginBottom: 0 }}>Proč je půjčovna VR <span className="gradient-text">tak populární?</span></h2>
             </div>
-            <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
+            <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }} data-sr data-sr-delay={40}>
               <img
                 src={images.whatWeDo}
-                alt="Rodina hraje VR hry doma - pronájem virtuální reality Praha"
+                alt="Rodina hraje VR hry doma — zapůjčení Meta Quest, pronájem virtuální reality od VRzazitek"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
               />
               <div style={{
@@ -177,7 +174,7 @@ export default function Zapujceni() {
                 mixBlendMode: 'multiply',
               }}></div>
             </div>
-            <div>
+            <div data-sr data-sr-delay={80}>
               <p className="lead" style={{ marginBottom: '1.5rem' }}>
                 Děti si virtuální realitu okamžitě zamilují a dospělí si u ní odpočinou. To nejlepší na službě <strong style={{ color: 'var(--text)' }}>VR domů</strong> je, že se do zábavy zapojí celá rodina. Díky Chromecastu vidíte na TV to, co hráč prožívá.
               </p>
@@ -199,7 +196,7 @@ export default function Zapujceni() {
         <div className="orb orb-cyan" style={{ width: 350, height: 350, top: -80, left: '20%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Co si můžete půjčit</span>
               <h2>Vyberte si <span className="gradient-text">headset podle svých představ.</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -208,11 +205,11 @@ export default function Zapujceni() {
             </div>
 
             <div className="grid-2" style={{ gap: '1.5rem' }}>
-              <div className="svc-card" style={{ padding: 0, overflow: 'hidden' }}>
+              <div className="svc-card" style={{ padding: 0, overflow: 'hidden' }} data-sr>
                 <div style={{ position: 'relative', aspectRatio: '16 / 10', background: 'linear-gradient(145deg, #e2e8f0, #f8fafc)' }}>
                   <img
                     src={images.productMetaQuest2}
-                    alt="Meta Quest 2 – člověk s VR headsetem"
+                    alt="Pronájem Meta Quest 2 — bezdrátový VR headset k zapůjčení domů, VRzazitek.cz"
                     loading="lazy"
                     decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
@@ -233,11 +230,11 @@ export default function Zapujceni() {
                 </div>
               </div>
 
-              <div className="svc-card" style={{ padding: 0, overflow: 'hidden' }}>
+              <div className="svc-card" style={{ padding: 0, overflow: 'hidden' }} data-sr data-sr-delay={50}>
                 <div style={{ position: 'relative', aspectRatio: '16 / 10', background: 'linear-gradient(145deg, #e2e8f0, #f8fafc)' }}>
                   <img
                     src={images.productMetaQuest3}
-                    alt="Meta Quest 3 – VR headset"
+                    alt="Pronájem Meta Quest 3 — nejnovější VR headset k zápůjčce, Praha a kurýr po ČR"
                     loading="lazy"
                     decoding="async"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
@@ -264,7 +261,7 @@ export default function Zapujceni() {
 
             {/* Accessories */}
             <div style={{ marginTop: '3rem' }}>
-              <div className="text-center" style={{ marginBottom: '2rem' }}>
+              <div className="text-center" style={{ marginBottom: '2rem' }} data-sr>
                 <h3 style={{ fontSize: '1.5rem' }}>Příslušenství k zapůjčení</h3>
                 <p className="lead" style={{ margin: '0.75rem auto 0' }}>
                   Vylepšete si zážitek. K pronájmu VR nabízíme i doplňky pro lepší komfort.
@@ -272,7 +269,7 @@ export default function Zapujceni() {
               </div>
               <div className="grid-3">
                 {accessories.map((a, i) => (
-                  <div key={i} className="svc-card">
+                  <div key={i} className="svc-card" data-sr data-sr-delay={i * 40}>
                     <div style={{ fontSize: '2rem', marginBottom: '0.6rem' }}>{a.icon}</div>
                     <h3>{a.title}</h3>
                     <p>{a.desc}</p>
@@ -289,13 +286,13 @@ export default function Zapujceni() {
         <div className="orb orb-purple" style={{ width: 300, height: 300, top: '10%', right: -100 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Jak funguje půjčovna VR</span>
               <h2>Od objednání až po vrácení — <span className="gradient-text">pronájem VR jednoduše.</span></h2>
             </div>
             <div className="grid-3">
               {steps.map((s, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={Math.min(i * 25, 125)}>
                   <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{s.icon}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
@@ -315,16 +312,16 @@ export default function Zapujceni() {
         <div className="orb orb-cyan" style={{ width: 350, height: 350, top: -80, right: '20%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Ceník</span>
               <h2>Ceník <span className="gradient-text">pronájmu VR.</span></h2>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
-              <PriceTable title="Meta Quest 2" rows={quest2Prices} />
-              <PriceTable title="Meta Quest 3" rows={quest3Prices} />
-              <PriceTable title="Doplňky & Doprava" rows={extrasPrices} />
+              <PriceTable title="Meta Quest 2" rows={quest2Prices} revealIndex={0} />
+              <PriceTable title="Meta Quest 3" rows={quest3Prices} revealIndex={1} />
+              <PriceTable title="Doplňky & Doprava" rows={extrasPrices} revealIndex={2} />
             </div>
-            <p className="text-center text-muted" style={{ marginTop: '1.5rem', fontSize: '0.9rem' }}>
+            <p className="text-center text-muted" style={{ marginTop: '1.5rem', fontSize: '0.9rem' }} data-sr data-sr-delay={100}>
               Tip: Poptávky jako „Quest 3 na víkend Praha" vyřizujeme obratem.
             </p>
           </div>
@@ -338,13 +335,13 @@ export default function Zapujceni() {
         <div className="orb orb-dark-purple" style={{ width: 300, height: 300, bottom: 0, right: 0 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Reference</span>
               <h2>Co říkají <span className="gradient-text-light">naši zákazníci.</span></h2>
             </div>
             <div className="grid-2">
               {reviews.map((r, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={Math.min(i * 30, 120)}>
                   <div style={{ color: 'var(--cyan-bright)', marginBottom: '0.75rem', fontSize: '1rem' }}>★★★★★</div>
                   <p style={{ fontSize: '0.92rem', lineHeight: 1.7, marginBottom: '1rem' }}>"{r.text}"</p>
                   <div style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--cyan-bright)', letterSpacing: '0.05em' }}>
@@ -365,12 +362,14 @@ export default function Zapujceni() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
           <div className="container split split-stack-title">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Kontakt a objednávky</span>
               <h2 style={{ marginBottom: 0 }}>Jsme vaše <span className="gradient-text">půjčovna VR.</span></h2>
             </div>
-            <ContactMapCard />
-            <div>
+            <div data-sr data-sr-delay={45}>
+              <ContactMapCard />
+            </div>
+            <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Zavolejte nebo napište, poradíme s výběrem.
               </p>

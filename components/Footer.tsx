@@ -19,7 +19,7 @@ export default function Footer() {
           gap: '3rem',
           marginBottom: '3rem',
         }}>
-          <div>
+          <div data-sr data-sr-delay={0}>
             <BrandLogo variant="footer" />
             <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'rgba(224, 236, 255, 0.75)' }}>
               Profesionální realizace virtuální a rozšířené reality pro firmy, teambuilding a domácnosti v ČR.
@@ -29,7 +29,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div data-sr data-sr-delay={35}>
             <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--cyan-bright)', marginBottom: '1rem', fontWeight: 600 }}>
               Služby
             </h4>
@@ -41,7 +41,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div data-sr data-sr-delay={70}>
             <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--cyan-bright)', marginBottom: '1rem', fontWeight: 600 }}>
               Kontakt
             </h4>
@@ -53,7 +53,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div data-sr data-sr-delay={105}>
             <h4 style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.15em', color: 'var(--cyan-bright)', marginBottom: '1rem', fontWeight: 600 }}>
               Sídlo
             </h4>
@@ -84,7 +84,7 @@ export default function Footer() {
           gap: '1rem',
           fontSize: '0.8rem',
           color: 'rgba(224, 236, 255, 0.5)',
-        }}>
+        }} data-sr data-sr-delay={130}>
           <p>© {new Date().getFullYear()} VR zážitek — Všechna práva vyhrazena.</p>
           <p>Praha • Beroun • celá ČR</p>
         </div>

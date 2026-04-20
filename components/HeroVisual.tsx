@@ -12,7 +12,7 @@ export default function HeroVisual() {
       <div className="hero-center">
         <Image
           src={images.hero}
-          alt="Zážitek ve virtuální realitě"
+          alt="Virtuální realita pro firmy i domů — hráč ve VR brýlích Meta Quest, firemní zážitek a pronájem VR Praha, Beroun, celá ČR"
           fill
           sizes="(max-width: 900px) 85vw, 280px"
           priority

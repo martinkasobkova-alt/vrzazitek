@@ -10,34 +10,34 @@ export type ReferenceLogo = { src: string; alt: string };
 export const referenceLogos: ReferenceLogo[] = [
   {
     src: `${CDN}/200000999-72a7c72a7e/marsoun%20kolecko%20big.webp?ph=3f0d647b7d`,
-    alt: 'Marsoun',
+    alt: 'Logo partnera Marsoun — reference VR a firemní akce, VRzazitek',
   },
   {
     src: `${CDN}/200001001-0218102195/radost%20detem.webp?ph=3f0d647b7d`,
-    alt: 'Radost dětem',
+    alt: 'Logo partnera Radost dětem — reference VR pro firmy, VRzazitek',
   },
   {
     src: `${CDN}/200000730-4fdbf4fdc0/loga%20kruh%20web%20vr%20zazitek-9.webp?ph=3f0d647b7d`,
-    alt: 'Jeden svět',
+    alt: 'Logo partnera Jeden svět — reference VRzazitek',
   },
   {
     src: `${CDN}/200000379-677fc677fd/BS%20LOGO%20WHITE%20circle.webp?ph=3f0d647b7d`,
-    alt: 'Bluestyle',
+    alt: 'Logo partnera Bluestyle — reference VR pro firmy, VRzazitek',
   },
   {
     src: `${CDN}/200000500-07ebd07ebe/loga%20kruh%20web%20vr%20zazitek%20%281%29.webp?ph=3f0d647b7d`,
-    alt: 'Amundi',
+    alt: 'Logo partnera Amundi — reference VRzazitek',
   },
   {
     src: `${CDN}/200000732-92a9692a98/loga%20kruh%20web%20vr%20zazitek%20%282%29.webp?ph=3f0d647b7d`,
-    alt: 'Člověk v tísni',
+    alt: 'Logo partnera Člověk v tísni — reference VRzazitek',
   },
   {
     src: `${CDN}/200000724-50d6150d63/loga%20kruh%20web%20vr%20zazitek-6.webp?ph=3f0d647b7d`,
-    alt: 'HAIMA',
+    alt: 'Logo partnera HAIMA — reference VR pro firmy, VRzazitek',
   },
   {
     src: `${CDN}/200001003-a85a7a85a9/keebola%20round.webp?ph=3f0d647b7d`,
-    alt: 'Keebola',
+    alt: 'Logo partnera Keebola — reference VRzazitek',
   },
 ];

@@ -3,12 +3,9 @@ import type { Metadata } from 'next';
 import { images } from '@/lib/images';
 import ReferenceLogoMarquee from '@/components/ReferenceLogoMarquee';
 import ContactMapCard from '@/components/ContactMapCard';
+import { metadataFor } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Pronájem virtuální reality (VR) & AR pro firmy | Eventy & teambuilding',
-  description: 'Rozšířená a virtuální realita pro firmy: eventy, teambuilding, AR prezentace, vzdělávání ve VR. Kompletní realizace na klíč, Praha a celá ČR.',
-  alternates: { canonical: 'https://www.vrzazitek.cz/vr-pro-firmy' },
-};
+export const metadata: Metadata = metadataFor('vr-pro-firmy');
 
 const pillars = [
   {
@@ -112,7 +109,7 @@ export default function VrProFirmy() {
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
                 <img
                   src={images.heroCorporate}
-                  alt="Firemní konference a technologie – VR pro firmy"
+                  alt="Virtuální a rozšířená realita pro firmy — konference, VR zóna a eventy v Praze a po ČR"
                   style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
                 />
                 <div
@@ -150,17 +147,17 @@ export default function VrProFirmy() {
         <div className="orb orb-purple" style={{ width: 250, height: 250, bottom: '10%', right: -50 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Tři pilíře VR služeb</span>
               <h2>Využití virtuální a rozšířené reality <span className="gradient-text">ve firmách.</span></h2>
             </div>
             <div className="grid-3">
               {pillars.map((p, i) => (
-                <div key={i} className="svc-card pillar-card">
+                <div key={i} className="svc-card pillar-card" data-sr data-sr-delay={i * 40}>
                   <img
                     className="pillar-card__bg"
                     src={p.image}
-                    alt=""
+                    alt={`${p.title} — VR a AR pro firmy, VRzazitek.cz`}
                     loading="lazy"
                     decoding="async"
                     aria-hidden
@@ -192,7 +189,7 @@ export default function VrProFirmy() {
         <div className="orb orb-cyan" style={{ width: 350, height: 350, top: '30%', right: -100 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Jak probíhá spolupráce</span>
               <h2>Rychle a <span className="gradient-text">přehledně.</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
@@ -201,7 +198,7 @@ export default function VrProFirmy() {
             </div>
             <div className="grid-4">
               {process.map((p, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={i * 35}>
                   <div style={{
                     width: 44, height: 44, borderRadius: 12,
                     background: 'var(--gradient-btn)',
@@ -224,7 +221,7 @@ export default function VrProFirmy() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: '10%', left: -100 }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
               <span className="tag-pill">Ceník</span>
               <h2>Ceník pronájmu <span className="gradient-text">VR a AR.</span></h2>
               <p className="text-muted" style={{ marginTop: '0.5rem', fontSize: '0.85rem' }}>
@@ -233,7 +230,7 @@ export default function VrProFirmy() {
             </div>
             <div className="grid-3">
               {pricing.map((p, i) => (
-                <div key={i} className="svc-card">
+                <div key={i} className="svc-card" data-sr data-sr-delay={Math.min(i * 30, 150)}>
                   <h3 style={{ marginBottom: '0.5rem', color: 'var(--cyan)' }}>{p.title}</h3>
                   <p style={{ marginBottom: '1.25rem' }}>{p.desc}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -262,12 +259,14 @@ export default function VrProFirmy() {
         <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
         <section>
           <div className="container">
-            <div className="text-center" style={{ marginBottom: '2rem' }}>
+            <div className="text-center" style={{ marginBottom: '2rem' }} data-sr>
               <span className="tag-pill">Reference</span>
               <h2>Firmy, které využily <span className="gradient-text-light">naše VR služby.</span></h2>
             </div>
-            <ReferenceLogoMarquee />
-            <p className="text-center" style={{ marginTop: '2rem', fontSize: '0.9rem', color: 'rgba(224, 236, 255, 0.65)' }}>
+            <div data-sr data-sr-delay={40}>
+              <ReferenceLogoMarquee />
+            </div>
+            <p className="text-center" style={{ marginTop: '2rem', fontSize: '0.9rem', color: 'rgba(224, 236, 255, 0.65)' }} data-sr data-sr-delay={80}>
               A spousta dalších projektů ve VR a AR…
             </p>
           </div>
@@ -279,12 +278,14 @@ export default function VrProFirmy() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
           <div className="container split split-stack-title">
-            <div>
+            <div data-sr>
               <span className="tag-pill">Pojďme se spojit</span>
               <h2 style={{ marginBottom: 0 }}>Poptat VR <span className="gradient-text">pro firmu.</span></h2>
             </div>
-            <ContactMapCard />
-            <div>
+            <div data-sr data-sr-delay={45}>
+              <ContactMapCard />
+            </div>
+            <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište detaily akce (termín, počet lidí). Obratem pošleme nezávaznou nabídku.
               </p>
