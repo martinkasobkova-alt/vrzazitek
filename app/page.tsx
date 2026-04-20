@@ -30,12 +30,19 @@ export default function Home() {
         ></div>
 
         <section className="hero-home" style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="eyebrow hero-intro-item hero-intro-item--1">Virtuální realita na klíč</span>
-              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
                 Virtuální realita <span className="gradient-text">pro firmy i domů</span>
               </h1>
+            </div>
+
+            <div className="hero-intro-visual">
+              <HeroVisual />
+            </div>
+
+            <div>
               <p
                 className="lead hero-intro-item hero-intro-item--3"
                 style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
@@ -73,10 +80,6 @@ export default function Home() {
                 Official Partner of <strong style={{ color: 'var(--cyan)' }}>Synthesis VR</strong>
               </p>
             </div>
-
-            <div className="hero-intro-visual">
-              <HeroVisual />
-            </div>
           </div>
         </section>
       </div>
@@ -88,33 +91,10 @@ export default function Home() {
 
         <section style={{ paddingTop: 'clamp(2rem, 4vw, 3.25rem)', paddingBottom: 'clamp(2.25rem, 4.5vw, 3.75rem)' }}>
           <div className="container">
-            <div className="split" style={{ gap: 'clamp(1.35rem, 3.5vw, 2.25rem)', alignItems: 'start' }}>
+            <div className="split split-stack-title split-stack-title--visual-top" style={{ gap: 'clamp(1.35rem, 3.5vw, 2.25rem)' }}>
               <div>
                 <span className="tag-pill">Služby</span>
-                <h2 style={{ marginBottom: '1rem' }}>Co <span className="gradient-text">umíme</span> nejlépe.</h2>
-                <p className="lead" style={{ marginBottom: '1.15rem' }}>
-                  <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> zajišťuje virtuální realitu pro firmy i domácnosti v Praze, Berouně a po celé ČR. Specializujeme se na <strong style={{ color: 'var(--text)' }}>firemní eventy</strong>, konference, promo akce a <strong style={{ color: 'var(--text)' }}>teambuilding ve VR</strong>.
-                </p>
-                <p className="lead" style={{ marginBottom: 0 }}>
-                  Doručíme techniku, připravíme obsah, zajistíme sdílení obrazu a obsluhu na místě. Pro jednotlivce nabízíme službu <strong style={{ color: 'var(--text)' }}>půjčovna VR domů</strong> – headset s vybranými hrami doručíme a vysvětlíme ovládání.
-                </p>
-
-                <div style={{ marginTop: 'clamp(1.25rem, 2.5vw, 1.85rem)', maxWidth: 540 }}>
-                  <h3 style={{ fontSize: '1.35rem', marginBottom: '1.1rem' }}>Co umíme rychle dodat</h3>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                    {['Eventy a konference', 'Teambuilding na míru', 'VR domů bez starostí', 'Kompletní realizace bez starostí'].map((item, i) => (
-                      <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontSize: '0.98rem' }}>
-                        <span style={{
-                          width: 22, height: 22, borderRadius: '50%',
-                          background: 'var(--gradient-btn)', color: '#fff',
-                          display: 'grid', placeItems: 'center',
-                          fontSize: '0.75rem', fontWeight: 700, flexShrink: 0,
-                        }}>✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <h2 style={{ marginBottom: 0 }}>Co <span className="gradient-text">umíme</span> nejlépe.</h2>
               </div>
 
               <div style={{ display: 'flex', minWidth: 0, width: '100%', alignSelf: 'start' }}>
@@ -141,6 +121,32 @@ export default function Home() {
                     background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(124, 58, 237, 0.25))',
                     mixBlendMode: 'multiply',
                   }}></div>
+                </div>
+              </div>
+
+              <div>
+                <p className="lead" style={{ marginBottom: '1.15rem' }}>
+                  <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> zajišťuje virtuální realitu pro firmy i domácnosti v Praze, Berouně a po celé ČR. Specializujeme se na <strong style={{ color: 'var(--text)' }}>firemní eventy</strong>, konference, promo akce a <strong style={{ color: 'var(--text)' }}>teambuilding ve VR</strong>.
+                </p>
+                <p className="lead" style={{ marginBottom: 0 }}>
+                  Doručíme techniku, připravíme obsah, zajistíme sdílení obrazu a obsluhu na místě. Pro jednotlivce nabízíme službu <strong style={{ color: 'var(--text)' }}>půjčovna VR domů</strong> – headset s vybranými hrami doručíme a vysvětlíme ovládání.
+                </p>
+
+                <div style={{ marginTop: 'clamp(1.25rem, 2.5vw, 1.85rem)', maxWidth: 540 }}>
+                  <h3 style={{ fontSize: '1.35rem', marginBottom: '1.1rem' }}>Co umíme rychle dodat</h3>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                    {['Eventy a konference', 'Teambuilding na míru', 'VR domů bez starostí', 'Kompletní realizace bez starostí'].map((item, i) => (
+                      <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontSize: '0.98rem' }}>
+                        <span style={{
+                          width: 22, height: 22, borderRadius: '50%',
+                          background: 'var(--gradient-btn)', color: '#fff',
+                          display: 'grid', placeItems: 'center',
+                          fontSize: '0.75rem', fontWeight: 700, flexShrink: 0,
+                        }}>✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
@@ -278,10 +284,15 @@ export default function Home() {
         <div className="orb orb-purple" style={{ width: 250, height: 250, bottom: -50, left: '10%' }}></div>
 
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="tag-pill">Pojďme se spojit</span>
-              <h2>Chcete <span className="gradient-text">VR zážitek?</span></h2>
+              <h2 style={{ marginBottom: 0 }}>Chcete <span className="gradient-text">VR zážitek?</span></h2>
+            </div>
+
+            <ContactMapCard />
+
+            <div>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište město, termín a počet lidí. Pošleme rychlý návrh řešení a cenu — obvykle do 24 hodin.
               </p>
@@ -290,8 +301,6 @@ export default function Home() {
                 <a href="tel:+420604160718" className="btn btn-ghost">+420 604 160 718</a>
               </div>
             </div>
-
-            <ContactMapCard />
           </div>
         </section>
       </div>

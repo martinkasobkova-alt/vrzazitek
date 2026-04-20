@@ -85,12 +85,25 @@ export default function ONas() {
         ></div>
 
         <section style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="eyebrow hero-intro-item hero-intro-item--1">Kontakt a náš tým</span>
-              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
                 Zeptejte se nás <span className="gradient-text">na cokoliv.</span>
               </h1>
+            </div>
+            <div
+              className="hero-intro-visual"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: 'clamp(200px, 28vw, 340px)',
+              }}
+            >
+              <ContactHeroIllustration />
+            </div>
+            <div>
               <p
                 className="lead hero-intro-item hero-intro-item--3"
                 style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
@@ -109,17 +122,6 @@ export default function ONas() {
                   Facebook
                 </a>
               </div>
-            </div>
-            <div
-              className="hero-intro-visual"
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                minHeight: 'clamp(200px, 28vw, 340px)',
-              }}
-            >
-              <ContactHeroIllustration />
             </div>
           </div>
         </section>
@@ -275,10 +277,13 @@ export default function ONas() {
       <div className="block block-sky" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="tag-pill">Pojďme se spojit</span>
-              <h2>Rychle, jednoduše, <span className="gradient-text">spolehlivě.</span></h2>
+              <h2 style={{ marginBottom: 0 }}>Rychle, jednoduše, <span className="gradient-text">spolehlivě.</span></h2>
+            </div>
+            <ContactMapCard />
+            <div>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište nám detaily akce nebo typ zápůjčky. Obratem vám pošleme nezávaznou nabídku.
               </p>
@@ -287,7 +292,6 @@ export default function ONas() {
                 <a href="mailto:info@vrzazitek.cz" className="btn btn-ghost">✉️ info@vrzazitek.cz</a>
               </div>
             </div>
-            <ContactMapCard />
           </div>
         </section>
       </div>

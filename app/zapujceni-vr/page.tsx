@@ -95,12 +95,31 @@ export default function Zapujceni() {
         ></div>
 
         <section style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="eyebrow hero-intro-item hero-intro-item--1">Pronájem VR domů</span>
-              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
                 Pronájem VR. <span className="gradient-text">Zábava bez starostí!</span>
               </h1>
+            </div>
+            <div className="hero-intro-visual">
+              <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
+                <img
+                  src={images.heroHomeRental}
+                  alt="Domácí zábava s VR – pronájem virtuální reality"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(124, 58, 237, 0.25))',
+                    mixBlendMode: 'multiply',
+                  }}
+                ></div>
+              </div>
+            </div>
+            <div>
               <p
                 className="lead hero-intro-item hero-intro-item--3"
                 style={{ marginBottom: '1.5rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
@@ -133,23 +152,6 @@ export default function Zapujceni() {
                 </div>
               </div>
             </div>
-            <div className="hero-intro-visual">
-              <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
-                <img
-                  src={images.heroHomeRental}
-                  alt="Domácí zábava s VR – pronájem virtuální reality"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
-                />
-                <div
-                  style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(124, 58, 237, 0.25))',
-                    mixBlendMode: 'multiply',
-                  }}
-                ></div>
-              </div>
-            </div>
           </div>
         </section>
       </div>
@@ -158,20 +160,10 @@ export default function Zapujceni() {
       <div className="block block-paper" data-scroll-reveal>
         <div className="orb orb-blue" style={{ width: 300, height: 300, top: '10%', right: -100 }}></div>
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title split-stack-title--visual-top">
             <div>
               <span className="tag-pill">Proč VR domů</span>
-              <h2>Proč je půjčovna VR <span className="gradient-text">tak populární?</span></h2>
-              <p className="lead" style={{ marginBottom: '1.5rem' }}>
-                Děti si virtuální realitu okamžitě zamilují a dospělí si u ní odpočinou. To nejlepší na službě <strong style={{ color: 'var(--text)' }}>VR domů</strong> je, že se do zábavy zapojí celá rodina. Díky Chromecastu vidíte na TV to, co hráč prožívá.
-              </p>
-              <p className="lead" style={{ marginBottom: '2rem' }}>
-                <strong style={{ color: 'var(--text)' }}>Půjčení virtuální reality</strong> je skvělý tip na dárek nebo víkendovou aktivitu. Doručíme vám kompletní set, ať už jste v Praze, Berouně nebo okolí. Není to „jen další film", ale zážitek, na který budete vzpomínat ještě dlouho poté.
-              </p>
-              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <Link href="#cenik" className="btn btn-primary">💰 Ceník pronájmu VR</Link>
-                <Link href="/oslavy-vr" className="btn btn-ghost">🎉 Oslavy a svatby</Link>
-              </div>
+              <h2 style={{ marginBottom: 0 }}>Proč je půjčovna VR <span className="gradient-text">tak populární?</span></h2>
             </div>
             <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
               <img
@@ -184,6 +176,18 @@ export default function Zapujceni() {
                 background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(124, 58, 237, 0.25))',
                 mixBlendMode: 'multiply',
               }}></div>
+            </div>
+            <div>
+              <p className="lead" style={{ marginBottom: '1.5rem' }}>
+                Děti si virtuální realitu okamžitě zamilují a dospělí si u ní odpočinou. To nejlepší na službě <strong style={{ color: 'var(--text)' }}>VR domů</strong> je, že se do zábavy zapojí celá rodina. Díky Chromecastu vidíte na TV to, co hráč prožívá.
+              </p>
+              <p className="lead" style={{ marginBottom: '2rem' }}>
+                <strong style={{ color: 'var(--text)' }}>Půjčení virtuální reality</strong> je skvělý tip na dárek nebo víkendovou aktivitu. Doručíme vám kompletní set, ať už jste v Praze, Berouně nebo okolí. Není to „jen další film", ale zážitek, na který budete vzpomínat ještě dlouho poté.
+              </p>
+              <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <Link href="#cenik" className="btn btn-primary">💰 Ceník pronájmu VR</Link>
+                <Link href="/oslavy-vr" className="btn btn-ghost">🎉 Oslavy a svatby</Link>
+              </div>
             </div>
           </div>
         </section>
@@ -360,10 +364,13 @@ export default function Zapujceni() {
       <div className="block block-sky" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="tag-pill">Kontakt a objednávky</span>
-              <h2>Jsme vaše <span className="gradient-text">půjčovna VR.</span></h2>
+              <h2 style={{ marginBottom: 0 }}>Jsme vaše <span className="gradient-text">půjčovna VR.</span></h2>
+            </div>
+            <ContactMapCard />
+            <div>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Zavolejte nebo napište, poradíme s výběrem.
               </p>
@@ -373,7 +380,6 @@ export default function Zapujceni() {
                 <a href="mailto:info@vrzazitek.cz" className="btn btn-ghost">✉️ info@vrzazitek.cz</a>
               </div>
             </div>
-            <ContactMapCard />
           </div>
         </section>
       </div>

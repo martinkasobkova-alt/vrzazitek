@@ -101,25 +101,12 @@ export default function VrProFirmy() {
         ></div>
 
         <section style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="eyebrow hero-intro-item hero-intro-item--1">VR a AR pro firmy</span>
-              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
                 Rozšířená a virtuální realita <span className="gradient-text">pro firmy.</span>
               </h1>
-              <p
-                className="lead hero-intro-item hero-intro-item--3"
-                style={{ marginBottom: '1.5rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-              >
-                Hledáte originální způsob, jak stmelit kolektiv? Připravíme komplexní teambuilding ve VR, který v sobě pojí zábavu, nejmodernější technologie a rozvoj týmové spolupráce.
-              </p>
-              <p className="lead hero-intro-item hero-intro-item--4" style={{ marginBottom: '2rem' }}>
-                Virtuální realita pro firmy není jen o hrách — je to nástroj, který během pár minut promění zasedací místnosti v hi-tech hernu s profesionální obsluhou.
-              </p>
-              <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <Link href="#cenik" className="btn btn-ghost">Zobrazit ceník ↓</Link>
-                <Link href="/objednani-vr" className="btn btn-primary">Chci nabídku VR/AR →</Link>
-              </div>
             </div>
             <div className="hero-intro-visual">
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
@@ -136,6 +123,21 @@ export default function VrProFirmy() {
                     mixBlendMode: 'multiply',
                   }}
                 ></div>
+              </div>
+            </div>
+            <div>
+              <p
+                className="lead hero-intro-item hero-intro-item--3"
+                style={{ marginBottom: '1.5rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+              >
+                Hledáte originální způsob, jak stmelit kolektiv? Připravíme komplexní teambuilding ve VR, který v sobě pojí zábavu, nejmodernější technologie a rozvoj týmové spolupráce.
+              </p>
+              <p className="lead hero-intro-item hero-intro-item--4" style={{ marginBottom: '2rem' }}>
+                Virtuální realita pro firmy není jen o hrách — je to nástroj, který během pár minut promění zasedací místnosti v hi-tech hernu s profesionální obsluhou.
+              </p>
+              <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <Link href="#cenik" className="btn btn-ghost">Zobrazit ceník ↓</Link>
+                <Link href="/objednani-vr" className="btn btn-primary">Chci nabídku VR/AR →</Link>
               </div>
             </div>
           </div>
@@ -276,10 +278,13 @@ export default function VrProFirmy() {
       <div className="block block-sky" id="kontakt" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="tag-pill">Pojďme se spojit</span>
-              <h2>Poptat VR <span className="gradient-text">pro firmu.</span></h2>
+              <h2 style={{ marginBottom: 0 }}>Poptat VR <span className="gradient-text">pro firmu.</span></h2>
+            </div>
+            <ContactMapCard />
+            <div>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište detaily akce (termín, počet lidí). Obratem pošleme nezávaznou nabídku.
               </p>
@@ -288,7 +293,6 @@ export default function VrProFirmy() {
                 <a href="tel:+420737627000" className="btn btn-ghost">+420 737 627 000</a>
               </div>
             </div>
-            <ContactMapCard />
           </div>
         </section>
       </div>

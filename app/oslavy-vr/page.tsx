@@ -87,25 +87,12 @@ export default function Oslavy() {
         ></div>
 
         <section style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="eyebrow hero-intro-item hero-intro-item--1">Oslavy ve virtuální realitě</span>
-              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
                 Oslavte to jinak. <span className="gradient-text">Oslavte to ve VR!</span>
               </h1>
-              <p
-                className="lead hero-intro-item hero-intro-item--3"
-                style={{ marginBottom: '1.5rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-              >
-                Hledáte nezapomenutelný zážitek pro vaši oslavu? <strong style={{ color: 'var(--text)' }}>Virtuální realita</strong> promění každou párty v dobrodružství, na které budou hosté vzpomínat ještě dlouho.
-              </p>
-              <p className="lead hero-intro-item hero-intro-item--4" style={{ marginBottom: '2rem' }}>
-                Ať už plánujete <strong style={{ color: 'var(--text)' }}>narozeniny</strong>, <strong style={{ color: 'var(--text)' }}>dětskou párty</strong>, <strong style={{ color: 'var(--text)' }}>rozlučku se svobodou</strong> nebo originální <strong style={{ color: 'var(--text)' }}>svatební zábavu</strong> – přivezeme VR přímo k vám a postaráme se o vše. Díky tomu si vy i vaši hosté můžete snadno vyzkoušet různé VR zážitky – od akčních her až po zábavné soutěže. Vy si užíváte oslavu, o techniku i průběh se postaráme my.
-              </p>
-              <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <Link href="#cenik" className="btn btn-ghost">💰 Zobrazit ceník</Link>
-                <Link href="/objednani-vr" className="btn btn-primary">🥽 Chci VR na oslavu</Link>
-              </div>
             </div>
             <div className="hero-intro-visual">
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
@@ -122,6 +109,21 @@ export default function Oslavy() {
                     mixBlendMode: 'multiply',
                   }}
                 ></div>
+              </div>
+            </div>
+            <div>
+              <p
+                className="lead hero-intro-item hero-intro-item--3"
+                style={{ marginBottom: '1.5rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+              >
+                Hledáte nezapomenutelný zážitek pro vaši oslavu? <strong style={{ color: 'var(--text)' }}>Virtuální realita</strong> promění každou párty v dobrodružství, na které budou hosté vzpomínat ještě dlouho.
+              </p>
+              <p className="lead hero-intro-item hero-intro-item--4" style={{ marginBottom: '2rem' }}>
+                Ať už plánujete <strong style={{ color: 'var(--text)' }}>narozeniny</strong>, <strong style={{ color: 'var(--text)' }}>dětskou párty</strong>, <strong style={{ color: 'var(--text)' }}>rozlučku se svobodou</strong> nebo originální <strong style={{ color: 'var(--text)' }}>svatební zábavu</strong> – přivezeme VR přímo k vám a postaráme se o vše. Díky tomu si vy i vaši hosté můžete snadno vyzkoušet různé VR zážitky – od akčních her až po zábavné soutěže. Vy si užíváte oslavu, o techniku i průběh se postaráme my.
+              </p>
+              <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <Link href="#cenik" className="btn btn-ghost">💰 Zobrazit ceník</Link>
+                <Link href="/objednani-vr" className="btn btn-primary">🥽 Chci VR na oslavu</Link>
               </div>
             </div>
           </div>
@@ -265,10 +267,13 @@ export default function Oslavy() {
       <div className="block block-sky" id="kontakt" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="tag-pill">Pojďme se spojit</span>
-              <h2>Objednejte VR <span className="gradient-text">na vaši oslavu.</span></h2>
+              <h2 style={{ marginBottom: 0 }}>Objednejte VR <span className="gradient-text">na vaši oslavu.</span></h2>
+            </div>
+            <ContactMapCard />
+            <div>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište termín a typ akce. Do 24 hodin pošleme nezávaznou nabídku na míru.
               </p>
@@ -277,7 +282,6 @@ export default function Oslavy() {
                 <a href="tel:+420737627000" className="btn btn-ghost">+420 737 627 000</a>
               </div>
             </div>
-            <ContactMapCard />
           </div>
         </section>
       </div>

@@ -80,22 +80,12 @@ export default function Teambuilding() {
         ></div>
 
         <section style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="eyebrow hero-intro-item hero-intro-item--1">VR teambuilding</span>
-              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
                 Teambuilding, který <span className="gradient-text">lidi fakt baví.</span>
               </h1>
-              <p
-                className="lead hero-intro-item hero-intro-item--3"
-                style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-              >
-                Připravíme pro vás teambuilding ve virtuální realitě — od instalace přes výběr her až po obsluhu na místě. Zasedačka se během chvíle změní na VR zónu.
-              </p>
-              <div className="hero-intro-item hero-intro-item--4" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <Link href="#cenik" className="btn btn-ghost">Zobrazit ceník ↓</Link>
-                <Link href="/objednani-vr" className="btn btn-primary">Poptat teambuilding →</Link>
-              </div>
             </div>
             <div className="hero-intro-visual">
               <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
@@ -112,6 +102,18 @@ export default function Teambuilding() {
                     mixBlendMode: 'multiply',
                   }}
                 ></div>
+              </div>
+            </div>
+            <div>
+              <p
+                className="lead hero-intro-item hero-intro-item--3"
+                style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+              >
+                Připravíme pro vás teambuilding ve virtuální realitě — od instalace přes výběr her až po obsluhu na místě. Zasedačka se během chvíle změní na VR zónu.
+              </p>
+              <div className="hero-intro-item hero-intro-item--4" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <Link href="#cenik" className="btn btn-ghost">Zobrazit ceník ↓</Link>
+                <Link href="/objednani-vr" className="btn btn-primary">Poptat teambuilding →</Link>
               </div>
             </div>
           </div>
@@ -246,10 +248,13 @@ export default function Teambuilding() {
       <div className="block block-sky" id="kontakt" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <section>
-          <div className="container split">
+          <div className="container split split-stack-title">
             <div>
               <span className="tag-pill">Pojďme se spojit</span>
-              <h2>Poptat <span className="gradient-text">VR teambuilding.</span></h2>
+              <h2 style={{ marginBottom: 0 }}>Poptat <span className="gradient-text">VR teambuilding.</span></h2>
+            </div>
+            <ContactMapCard />
+            <div>
               <p className="lead" style={{ marginBottom: '2rem' }}>
                 Napište město, termín a počet lidí. Pošleme rychlý návrh řešení a cenu.
               </p>
@@ -258,7 +263,6 @@ export default function Teambuilding() {
                 <a href="tel:+420737627000" className="btn btn-ghost">+420 737 627 000</a>
               </div>
             </div>
-            <ContactMapCard />
           </div>
         </section>
       </div>

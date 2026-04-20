@@ -322,7 +322,51 @@ section {
   align-items: center;
 }
 @media (max-width: 900px) {
-  .split { grid-template-columns: 1fr; }
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*
+ * Dvousloupec: na mobilu pořadí titulek → obrázek/mapa → ostatní text a CTA.
+ * Tři přímé potomky: (1) nadpis, (2) vizuál, (3) tělo.
+ */
+.split.split-stack-title {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: start;
+}
+.split.split-stack-title > :nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+.split.split-stack-title > :nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  min-width: 0;
+}
+.split.split-stack-title > :nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.split.split-stack-title.split-stack-title--visual-top > :nth-child(2) {
+  align-self: start;
+}
+@media (max-width: 900px) {
+  .split.split-stack-title {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+  .split.split-stack-title > :nth-child(1),
+  .split.split-stack-title > :nth-child(2),
+  .split.split-stack-title > :nth-child(3) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .split.split-stack-title > :nth-child(2) {
+    align-self: stretch;
+  }
 }
 
 /* Buttons */
