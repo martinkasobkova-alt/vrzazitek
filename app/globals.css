@@ -146,6 +146,30 @@ h3 { font-size: clamp(1.1rem, 1.8vw, 1.25rem); margin-bottom: 0.5rem; letter-spa
   color: transparent;
 }
 
+.read-more-toggle {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  padding: 0.35rem 0;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--cyan);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.read-more-toggle:hover {
+  color: var(--blue);
+}
+.read-more-toggle:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* Logo = stejný gradient + tučnost jako nadpis „pro firmy i domů“ (Space Grotesk 700) */
 .site-logo-link {
   display: inline-flex;
@@ -484,46 +508,75 @@ section {
   height: 100%;
   object-fit: cover;
   transform: scale(1.03);
+  filter: saturate(1.08) contrast(1.06);
 }
+/*
+ * Přechod přes CELÝ obrázek — nahoře musí být stejně čitelné jako dole (nadpisy na světlé fotce).
+ * Druhá vrstva jen jemně „obarví“ brandem, bez dalšího zadření.
+ */
 .pillar-card__scrim {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 0.42) 0%,
-    rgba(15, 23, 42, 0.52) 45%,
-    rgba(15, 23, 42, 0.72) 100%
-  );
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2, 8, 23, 0.66) 0%,
+      rgba(15, 23, 42, 0.54) 35%,
+      rgba(15, 23, 42, 0.58) 65%,
+      rgba(15, 23, 42, 0.7) 100%
+    ),
+    linear-gradient(
+      125deg,
+      rgba(8, 145, 178, 0.2) 0%,
+      transparent 40%,
+      rgba(49, 46, 129, 0.16) 100%
+    );
 }
 .pillar-card__body {
   position: relative;
   z-index: 1;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 26rem;
   padding: 1.75rem 1.5rem;
-  color: #f1f5f9;
+  color: #f8fafc;
 }
 .pillar-card__body .num {
-  color: #67e8f9;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: #cffafe;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.92),
+    0 0 20px rgba(0, 0, 0, 0.55);
 }
 .pillar-card__body h3 {
   color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.98),
+    0 1px 3px rgba(0, 0, 0, 0.95),
+    0 2px 28px rgba(0, 0, 0, 0.65);
 }
 .pillar-card__body p {
-  color: rgba(241, 245, 249, 0.94);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: rgba(248, 250, 252, 0.98);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.95),
+    0 1px 2px rgba(0, 0, 0, 0.92),
+    0 2px 22px rgba(0, 0, 0, 0.58);
 }
 .pillar-card__body li {
-  color: rgba(241, 245, 249, 0.92);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: rgba(248, 250, 252, 0.98);
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.95),
+    0 1px 2px rgba(0, 0, 0, 0.9),
+    0 2px 18px rgba(0, 0, 0, 0.52);
 }
 .pillar-card__body li span:first-child {
-  color: #22d3ee;
+  color: #5eead4;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.9),
+    0 1px 3px rgba(0, 0, 0, 0.85);
 }
 
 /* Homepage – 3 služby jako čtverce s fotkou a textem */
@@ -533,6 +586,44 @@ section {
   width: 100%;
   max-height: min(98vw, 440px);
   margin-inline: auto;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease;
+}
+.home-svc-tile.pillar-card.svc-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 22px 44px rgba(59, 130, 246, 0.2),
+    0 10px 28px rgba(8, 145, 178, 0.16),
+    0 0 0 1px rgba(103, 232, 249, 0.45);
+  border-color: rgba(103, 232, 249, 0.55);
+}
+.home-svc-tile.pillar-card.svc-card:focus-visible {
+  outline: none;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 22px 44px rgba(59, 130, 246, 0.2),
+    0 10px 28px rgba(8, 145, 178, 0.16),
+    0 0 0 3px rgba(59, 130, 246, 0.45),
+    0 0 0 1px rgba(103, 232, 249, 0.55);
+  border-color: rgba(103, 232, 249, 0.55);
+}
+.home-svc-tile.pillar-card.svc-card .pillar-card__bg {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease;
+}
+.home-svc-tile.pillar-card.svc-card:hover .pillar-card__bg,
+.home-svc-tile.pillar-card.svc-card:focus-visible .pillar-card__bg {
+  transform: scale(1.09);
+  filter: saturate(1.12) contrast(1.06) brightness(1.06);
+}
+.home-svc-tile.pillar-card.svc-card:hover::before,
+.home-svc-tile.pillar-card.svc-card:focus-visible::before {
+  opacity: 1;
 }
 .home-svc-tile .pillar-card__body {
   min-height: 0;
@@ -543,8 +634,17 @@ section {
   padding-top: 0.85rem;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #67e8f9;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: #bae6fd;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 0 18px rgba(0, 0, 0, 0.45);
+  transition: color 0.25s ease, letter-spacing 0.25s ease;
+}
+.home-svc-tile.pillar-card.svc-card:hover .home-svc-tile__cta,
+.home-svc-tile.pillar-card.svc-card:focus-visible .home-svc-tile__cta {
+  color: #e0f2fe;
+  letter-spacing: 0.02em;
 }
 
 /* Oslavy VR – příležitosti (fotka + přechod + text jako u pilířů) */
@@ -620,6 +720,24 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .pillar-card__bg {
+    filter: none;
+  }
+  .home-svc-tile.pillar-card.svc-card,
+  .home-svc-tile.pillar-card.svc-card .pillar-card__bg {
+    transition: none;
+  }
+  .home-svc-tile.pillar-card.svc-card:hover,
+  .home-svc-tile.pillar-card.svc-card:focus-visible {
+    transform: none;
+    box-shadow: 0 8px 28px rgba(59, 130, 246, 0.14);
+    border-color: rgba(103, 232, 249, 0.45);
+  }
+  .home-svc-tile.pillar-card.svc-card:hover .pillar-card__bg,
+  .home-svc-tile.pillar-card.svc-card:focus-visible .pillar-card__bg {
+    transform: scale(1.03);
+    filter: none;
+  }
   .logo-marquee__track {
     animation: none;
     transform: none;
@@ -1020,6 +1138,41 @@ details summary > .plus {
   border-color: var(--border-strong);
   box-shadow: 0 8px 40px rgba(59, 130, 246, 0.15);
 }
+
+/* Teambuilding: ceník v .block-deep — světlé karty + tmavý text; featured nesmí splývat s modrým pozadím */
+.block-deep .price-card {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+}
+.block-deep .price-card h3 {
+  color: var(--text);
+}
+.block-deep .price-card .text-muted {
+  color: var(--text-muted);
+}
+.block-deep .price-card.featured {
+  background: linear-gradient(180deg, #ffffff 0%, #eef2f7 100%);
+  border: 2px solid rgba(103, 232, 249, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(59, 130, 246, 0.2),
+    0 22px 56px rgba(0, 0, 0, 0.38),
+    0 12px 40px rgba(34, 211, 238, 0.28);
+  position: relative;
+  z-index: 1;
+}
+.block-deep .price-card .btn-ghost {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--blue-dark);
+  border-color: var(--border-mid);
+}
+.block-deep .price-card .btn-ghost:hover {
+  background: rgba(59, 130, 246, 0.18);
+  color: var(--blue-dark);
+  border-color: var(--border-strong);
+}
+
 .price-badge {
   position: absolute;
   top: -12px;
@@ -1054,6 +1207,7 @@ details summary > .plus {
 .block-deep .lead { color: rgba(224, 236, 255, 0.85); }
 
 .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+.grid-2--align-start { align-items: start; }
 
 /* Oslavy – reference: 4 karty v jednom řádku na desktopu (grid-2 by kvůli minmax(280px) zalomil 3+1) */
 .testimonials-grid {

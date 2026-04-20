@@ -3,14 +3,20 @@ import type { Metadata } from 'next';
 import HeroVisual from '@/components/HeroVisual';
 import ContactMapCard from '@/components/ContactMapCard';
 import { images } from '@/lib/images';
+import { hrefFor } from '@/lib/i18n/routes';
 import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = pageMetadata('cs', 'home');
+export const metadata: Metadata = pageMetadata('en', 'home');
 
-export default function Home() {
+export default function HomeEn() {
+  const L = {
+    order: hrefFor('objednani-vr', 'en'),
+    biz: hrefFor('vr-pro-firmy', 'en'),
+    homeRental: hrefFor('zapujceni-vr', 'en'),
+  };
+
   return (
     <>
-      {/* BLOCK 1: LIGHT SKY HERO */}
       <div className="block block-sky">
         <div className="grid-bg"></div>
         <div
@@ -29,9 +35,9 @@ export default function Home() {
         <section className="hero-home" style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
           <div className="container split split-stack-title">
             <div>
-              <span className="eyebrow hero-intro-item hero-intro-item--1">Virtuální realita na klíč</span>
+              <span className="eyebrow hero-intro-item hero-intro-item--1">Virtual reality turnkey</span>
               <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: 0 }}>
-                Virtuální realita <span className="gradient-text">pro firmy i domů</span>
+                Virtual reality <span className="gradient-text">for business &amp; home</span>
               </h1>
             </div>
 
@@ -44,29 +50,29 @@ export default function Home() {
                 className="lead hero-intro-item hero-intro-item--3"
                 style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
               >
-                Firemní eventy, teambuildingy a VR domů. Přivezeme techniku, obsah i obsluhu — vy si užijete zážitek.
+                Corporate events, team building and VR at home. We bring hardware, content and on-site crew — you enjoy the experience.
               </p>
               <div
                 className="hero-intro-item hero-intro-item--4"
                 style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}
               >
-                <Link href="/objednani-vr" className="btn btn-primary">Poptat →</Link>
-                <Link href="/vr-pro-firmy" className="btn btn-ghost">VR pro firmy</Link>
-                <Link href="/zapujceni-vr" className="btn btn-ghost">VR domů</Link>
+                <Link href={L.order} className="btn btn-primary">Get a quote →</Link>
+                <Link href={L.biz} className="btn btn-ghost">VR for business</Link>
+                <Link href={L.homeRental} className="btn btn-ghost">VR at home</Link>
               </div>
 
               <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '1.75rem', flexWrap: 'wrap' }}>
                 <div className="stat-item">
                   <div className="stat-val">24h</div>
-                  <div className="stat-lbl">Doručení</div>
+                  <div className="stat-lbl">Delivery</div>
                 </div>
                 <div className="stat-item">
                   <div className="stat-val">On-site</div>
-                  <div className="stat-lbl">Obsluha</div>
+                  <div className="stat-lbl">Crew</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-val">Praha + ČR</div>
-                  <div className="stat-lbl">Výjezdy</div>
+                  <div className="stat-val">Prague + CZ</div>
+                  <div className="stat-lbl">Coverage</div>
                 </div>
               </div>
 
@@ -81,7 +87,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* BLOCK 2: PAPER - What we do */}
       <div className="block block-paper" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, left: -50 }}></div>
         <div className="orb orb-purple" style={{ width: 250, height: 250, bottom: -50, right: '10%' }}></div>
@@ -90,8 +95,8 @@ export default function Home() {
           <div className="container">
             <div className="split split-stack-title split-stack-title--visual-top" style={{ gap: 'clamp(1.35rem, 3.5vw, 2.25rem)' }}>
               <div data-sr>
-                <span className="tag-pill">Služby</span>
-                <h2 style={{ marginBottom: 0 }}>Co <span className="gradient-text">umíme</span> nejlépe.</h2>
+                <span className="tag-pill">Services</span>
+                <h2 style={{ marginBottom: 0 }}>What we do <span className="gradient-text">best.</span></h2>
               </div>
 
               <div data-sr data-sr-delay={40} style={{ display: 'flex', minWidth: 0, width: '100%', alignSelf: 'start' }}>
@@ -110,7 +115,7 @@ export default function Home() {
                 >
                   <img
                     src={images.whatWeDo}
-                    alt="Firemní VR event a pronájem virtuální reality — headset, obsluha a technika na místě, VRzazitek.cz"
+                    alt="Corporate VR event — headsets, crew and on-site support, VRzazitek.cz"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
                   />
                   <div style={{
@@ -123,16 +128,16 @@ export default function Home() {
 
               <div data-sr data-sr-delay={80}>
                 <p className="lead" style={{ marginBottom: '1.15rem' }}>
-                  <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> zajišťuje virtuální realitu pro firmy i domácnosti v Praze, Berouně a po celé ČR. Specializujeme se na <strong style={{ color: 'var(--text)' }}>firemní eventy</strong>, konference, promo akce a <strong style={{ color: 'var(--text)' }}>teambuilding ve VR</strong>.
+                  <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> delivers virtual reality for companies and households in Prague, Beroun and across the Czech Republic. We focus on <strong style={{ color: 'var(--text)' }}>corporate events</strong>, conferences, brand activations and <strong style={{ color: 'var(--text)' }}>VR team building</strong>.
                 </p>
                 <p className="lead" style={{ marginBottom: 0 }}>
-                  Doručíme techniku, připravíme obsah, zajistíme sdílení obrazu a obsluhu na místě. Pro jednotlivce nabízíme službu <strong style={{ color: 'var(--text)' }}>půjčovna VR domů</strong> – headset s vybranými hrami doručíme a vysvětlíme ovládání.
+                  We bring equipment, prepare content, set up screen sharing and provide on-site staff. For individuals we offer <strong style={{ color: 'var(--text)' }}>VR home rental</strong> — Meta Quest with curated games, delivered and explained.
                 </p>
 
                 <div style={{ marginTop: 'clamp(1.25rem, 2.5vw, 1.85rem)', maxWidth: 540 }}>
-                  <h3 style={{ fontSize: '1.35rem', marginBottom: '1.1rem' }}>Co umíme rychle dodat</h3>
+                  <h3 style={{ fontSize: '1.35rem', marginBottom: '1.1rem' }}>What we ship fast</h3>
                   <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                    {['Eventy a konference', 'Teambuilding na míru', 'VR domů bez starostí', 'Kompletní realizace bez starostí'].map((item, i) => (
+                    {['Events & conferences', 'Tailored team building', 'Hassle-free VR at home', 'End-to-end production'].map((item, i) => (
                       <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontSize: '0.98rem' }}>
                         <span style={{
                           width: 22, height: 22, borderRadius: '50%',
@@ -151,7 +156,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* BLOCK 3: MINT - 3 pillars (services) */}
       <div className="block block-mint" data-scroll-reveal>
         <div className="grid-bg"></div>
         <div className="orb orb-cyan" style={{ width: 350, height: 350, top: -80, right: '20%' }}></div>
@@ -160,74 +164,71 @@ export default function Home() {
         <section style={{ paddingBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
           <div className="container">
             <div className="text-center" style={{ marginBottom: '3rem' }} data-sr>
-              <span className="tag-pill">Tři pilíře VR služeb</span>
+              <span className="tag-pill">Three pillars</span>
               <h2 style={{ maxWidth: 780, margin: '0 auto' }}>
-                Virtuální realita pro <span className="gradient-text">firmy i domů.</span>
+                Virtual reality for <span className="gradient-text">business &amp; home.</span>
               </h2>
             </div>
 
             <div className="grid-3">
-              <Link href="/vr-pro-firmy" className="svc-card pillar-card home-svc-tile" data-sr>
+              <Link href={L.biz} className="svc-card pillar-card home-svc-tile" data-sr>
                 <img
                   className="pillar-card__bg"
                   src={images.pillarEventsVr}
-                  alt="Firemní eventy a konference ve virtuální realitě — VR zóna pro firmy"
+                  alt="Corporate VR zone — conferences and brand experiences"
                   loading="lazy"
                   decoding="async"
                   aria-hidden
                 />
                 <div className="pillar-card__scrim" aria-hidden />
                 <div className="pillar-card__body">
-                  <div className="num">01 — FIREMNÍ EVENTY</div>
-                  <h3 style={{ marginBottom: '0.5rem' }}>Firemní eventy</h3>
+                  <div className="num">01 — CORPORATE EVENTS</div>
+                  <h3 style={{ marginBottom: '0.5rem' }}>Corporate events</h3>
                   <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>
-                    Interaktivní VR nebo AR zóna ozvláštní konferenci, večírek i firemní den. Kompletní techniku přivezeme,
-                    nainstalujeme a po celou dobu akce se postaráme o návštěvníky — od prvního nasazení headsetu až po hladký průběh programu.
-                    Vy tak řešíte jen hosty a harmonogram, my zajistíme zážitek bez technických starostí.
+                    An interactive VR or AR zone elevates conferences, launches and company days. We deliver hardware, install everything
+                    and host guests from first headset to a smooth program flow — you focus on attendees and timing, we handle the tech.
                   </p>
-                  <div className="home-svc-tile__cta">Zjistit více →</div>
+                  <div className="home-svc-tile__cta">Learn more →</div>
                 </div>
               </Link>
-              <Link href="/teambuilding-ve-vr" className="svc-card pillar-card home-svc-tile" data-sr data-sr-delay={45}>
+              <Link href={hrefFor('teambuilding-ve-vr', 'en')} className="svc-card pillar-card home-svc-tile" data-sr data-sr-delay={45}>
                 <img
                   className="pillar-card__bg"
                   src={images.homeTeambuildingTile}
-                  alt="VR teambuilding pro firmy — kooperativní hry a týmové mise"
+                  alt="VR team building — cooperative games for companies"
                   loading="lazy"
                   decoding="async"
                   aria-hidden
                 />
                 <div className="pillar-card__scrim" aria-hidden />
                 <div className="pillar-card__body">
-                  <div className="num">02 — TEAMBUILDING</div>
-                  <h3 style={{ marginBottom: '0.5rem' }}>Teambuilding</h3>
+                  <div className="num">02 — TEAM BUILDING</div>
+                  <h3 style={{ marginBottom: '0.5rem' }}>Team building</h3>
                   <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>
-                    Kooperativní hry a týmové mise, kde se projeví komunikace, důvěra i lehká soutěživost — bez nucených „kruhů“
-                    na zemi. Scénář sestavíme podle velikosti týmu, cíle setkání a kultury firmy; realizace je možná u vás v sídle,
-                    na offsite nebo v pronajatém prostoru kdekoli po České republice.
+                    Cooperative games and team missions that build communication, trust and friendly competition — without awkward icebreakers.
+                    We design the scenario for your team size, goals and culture; on-site at your office, offsite or a rented venue anywhere in the Czech Republic.
                   </p>
-                  <div className="home-svc-tile__cta">Zjistit více →</div>
+                  <div className="home-svc-tile__cta">Learn more →</div>
                 </div>
               </Link>
-              <Link href="/zapujceni-vr" className="svc-card pillar-card home-svc-tile" data-sr data-sr-delay={90}>
+              <Link href={L.homeRental} className="svc-card pillar-card home-svc-tile" data-sr data-sr-delay={90}>
                 <img
                   className="pillar-card__bg"
                   src={images.heroHomeRental}
-                  alt="Pronájem VR domů — Meta Quest, zábava pro rodinu a párty"
+                  alt="VR home rental — Meta Quest for families and parties"
                   loading="lazy"
                   decoding="async"
                   aria-hidden
                 />
                 <div className="pillar-card__scrim" aria-hidden />
                 <div className="pillar-card__body">
-                  <div className="num">03 — VR DOMŮ</div>
-                  <h3 style={{ marginBottom: '0.5rem' }}>VR domů</h3>
+                  <div className="num">03 — VR AT HOME</div>
+                  <h3 style={{ marginBottom: '0.5rem' }}>VR at home</h3>
                   <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>
-                    Pronajmeme vám Meta Quest s výběrem her a aplikací pro rodinu, partu i klidné večery ve dvou. Kompletní set
-                    včetně příslušenství doručíme, stručně zaškolíme a během zápůjčky jsme na telefonu nebo mailu, kdyby bylo potřeba
-                    cokoli rychle doladit. Žádné složité nastavování — zapnout, zorientovat se a hrát.
+                    Rent Meta Quest with games and apps for families, friends or quiet evenings. We deliver the full kit, brief you on controls
+                    and stay available by phone or email during the rental. Turn it on, find your bearings and play.
                   </p>
-                  <div className="home-svc-tile__cta">Zjistit více →</div>
+                  <div className="home-svc-tile__cta">Learn more →</div>
                 </div>
               </Link>
             </div>
@@ -235,7 +236,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* BLOCK 4: DEEP BLUE - FAQ */}
       <div className="block block-deep" data-scroll-reveal>
         <div className="grid-bg"></div>
         <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
@@ -251,16 +251,16 @@ export default function Home() {
             <div className="text-center" style={{ marginBottom: '2.25rem' }} data-sr>
               <span className="tag-pill">FAQ</span>
               <h2>
-                <span className="gradient-text-light">Časté dotazy</span>
+                <span className="gradient-text-light">Common questions</span>
               </h2>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
-                { q: 'Jaké VR headsety půjčujete?', a: 'Nejčastěji Meta Quest 2 a Meta Quest 3. Bezdrátově, připravené k použití.' },
-                { q: 'Jsou v headsetech předinstalované hry?', a: 'Ano. Připravíme výběr podle publika (začátečníci, akce, relax, týmové hry). Vy jen nasadíte brýle.' },
-                { q: 'Je VR vhodná pro začátečníky na firemní akci?', a: 'Ano. Obsah vybíráme tak, aby byl intuitivní. Na eventu je naše obsluha a dohlíží na bezpečnost.' },
-                { q: 'Kolik lidí může VR vyzkoušet na akci?', a: 'Záleží na počtu headsetů a délce zážitku. Běžně to bývá desítky až stovky lidí během jednoho eventu.' },
-                { q: 'Jak velký prostor je potřeba pro VR?', a: 'Pro jeden headset obvykle stačí cca 2×2 m. Setup upravíme podle prostoru (konference, kancelář, sál).' },
+                { q: 'Which VR headsets do you rent?', a: 'Most often Meta Quest 2 and Meta Quest 3 — wireless and ready to use.' },
+                { q: 'Are games pre-installed?', a: 'Yes. We prepare a library for your audience (beginners, parties, chill titles, team games). You just put on the headset.' },
+                { q: 'Is VR OK for beginners at a company event?', a: 'Absolutely. We pick intuitive experiences and our staff guides guests and watches safety.' },
+                { q: 'How many people can try VR at an event?', a: 'It depends on headset count and slot length. Typically dozens to hundreds of guests in one event.' },
+                { q: 'How much space do we need?', a: 'About 2×2 m per headset is usually enough. We adapt the setup to your venue (office, conference room, hall).' },
               ].map((item, i) => (
                 <details key={i} className="svc-card" style={{ cursor: 'pointer', padding: '1.25rem 1.75rem' }} data-sr data-sr-delay={Math.min(i * 35, 140)}>
                   <summary style={{ fontWeight: 600, fontSize: '1rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'var(--text-on-dark)' }}>
@@ -275,7 +275,6 @@ export default function Home() {
         </section>
       </div>
 
-      {/* BLOCK 5: SKY - Final CTA */}
       <div className="block block-sky" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <div className="orb orb-purple" style={{ width: 250, height: 250, bottom: -50, left: '10%' }}></div>
@@ -283,8 +282,8 @@ export default function Home() {
         <section>
           <div className="container split split-stack-title">
             <div data-sr>
-              <span className="tag-pill">Pojďme se spojit</span>
-              <h2 style={{ marginBottom: 0 }}>Chcete <span className="gradient-text">VR zážitek?</span></h2>
+              <span className="tag-pill">Let’s talk</span>
+              <h2 style={{ marginBottom: 0 }}>Want a <span className="gradient-text">VR experience?</span></h2>
             </div>
 
             <div data-sr data-sr-delay={45}>
@@ -293,10 +292,10 @@ export default function Home() {
 
             <div data-sr data-sr-delay={90}>
               <p className="lead" style={{ marginBottom: '2rem' }}>
-                Napište město, termín a počet lidí. Pošleme rychlý návrh řešení a cenu — obvykle do 24 hodin.
+                Send your city, date and headcount — we’ll reply with a proposal and price, usually within 24 hours.
               </p>
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <Link href="/objednani-vr" className="btn btn-primary">Nezávazná poptávka →</Link>
+                <Link href={L.order} className="btn btn-primary">Non-binding inquiry →</Link>
                 <a href="tel:+420604160718" className="btn btn-ghost">+420 604 160 718</a>
               </div>
             </div>

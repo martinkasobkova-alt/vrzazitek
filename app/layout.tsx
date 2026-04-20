@@ -1,11 +1,15 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollRevealProvider from '@/components/ScrollRevealProvider';
-import { homeTitle, metadataFor, rootLayoutDefaultDescription, SITE_URL } from '@/lib/seo';
+import {
+  homeTitle,
+  rootLayoutDefaultDescription,
+  rootLayoutDefaultDescriptionEn,
+  SITE_URL,
+} from '@/lib/seo';
 import './globals.css';
-
-const homeSeo = metadataFor('home');
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -15,8 +19,6 @@ export const metadata: Metadata = {
   },
   description: rootLayoutDefaultDescription(),
   authors: [{ name: 'VRzazitek.cz' }],
-  openGraph: homeSeo.openGraph,
-  alternates: homeSeo.alternates,
   robots: { index: true, follow: true },
 };
 
@@ -26,9 +28,14 @@ export const viewport = {
   initialScale: 1,
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const h = await headers();
+  const lang = h.get('x-locale') === 'en' ? 'en' : 'cs';
+  const jsonLdDescription =
+    lang === 'en' ? rootLayoutDefaultDescriptionEn() : rootLayoutDefaultDescription();
+
   return (
-    <html lang="cs">
+    <html lang={lang}>
       <head>
         <script
           type="application/ld+json"
@@ -37,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               '@context': 'https://schema.org',
               '@type': 'LocalBusiness',
               name: 'VRzazitek.cz',
-              description: rootLayoutDefaultDescription(),
+              description: jsonLdDescription,
               url: `${SITE_URL}/`,
               telephone: '+420604160718',
               email: 'info@vrzazitek.cz',

@@ -19,16 +19,8 @@ const nextConfig = {
       { source: '/dekujeme', destination: '/', permanent: true },
       { source: '/obchodni-podminky', destination: '/', permanent: true },
       { source: '/ochrana-osobnich-udaju', destination: '/', permanent: true },
-      { source: '/en', destination: '/', permanent: true },
-      { source: '/en/vr-home', destination: '/zapujceni-vr', permanent: true },
-      { source: '/en/vr-teambuilding', destination: '/teambuilding-ve-vr', permanent: true },
-      { source: '/en/order', destination: '/objednani-vr', permanent: true },
-      { source: '/en/contact-team', destination: '/o-nas', permanent: true },
-      { source: '/en/for-businessess', destination: '/vr-pro-firmy', permanent: true },
-      { source: '/en/terms-and-conditions', destination: '/', permanent: true },
-      { source: '/en/privacy-policy', destination: '/', permanent: true },
-      { source: '/en/thank-you', destination: '/', permanent: true },
-      { source: '/en/vr-party-experience', destination: '/oslavy-vr', permanent: true },
+      /** Anglické URL obsluhuje Next — nechat indexovatelné (stejné cesty jako dříve na Webnode). */
+      { source: '/en', destination: '/en/', permanent: true },
     ];
   },
 };

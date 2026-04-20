@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
 import ContactMapCard from '@/components/ContactMapCard';
+import ExpandableText from '@/components/ExpandableText';
 import { metadataFor } from '@/lib/seo';
 
 export const metadata: Metadata = metadataFor('zapujceni-vr');
@@ -204,7 +205,7 @@ export default function Zapujceni() {
               </p>
             </div>
 
-            <div className="grid-2" style={{ gap: '1.5rem' }}>
+            <div className="grid-2 grid-2--align-start" style={{ gap: '1.5rem' }}>
               <div className="svc-card" style={{ padding: 0, overflow: 'hidden' }} data-sr>
                 <div style={{ position: 'relative', aspectRatio: '16 / 10', background: 'linear-gradient(145deg, #e2e8f0, #f8fafc)' }}>
                   <img
@@ -221,12 +222,18 @@ export default function Zapujceni() {
                   Osvědčená volba pro VR doma – jednoduché ovládání a skvělá cena pronájmu.
                 </p>
                 <h4 style={{ fontSize: '1rem', color: 'var(--cyan)', marginBottom: '0.75rem', fontWeight: 600 }}>Pro koho je Quest 2?</h4>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65, marginBottom: '1rem' }}>
-                  Ideální volba pro rodiny, začátečníky i uživatele, kteří se s virtuální realitou teprve seznamují. <strong style={{ color: 'var(--text)' }}>Meta Quest 2</strong> nabízí velmi intuitivní ovládání, pohodlný headset a přístup ke stovkám kvalitních her, aplikací a interaktivních zážitků. Díky jednoduchému nastavení a bezdrátovému provozu je připraven k použití během několika minut, bez nutnosti složité instalace nebo připojení k počítači.
-                </p>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65 }}>
-                  Pokud hledáte cenově dostupný pronájem virtuální reality, který zároveň nabídne vysokou kvalitu obrazu a plynulý chod, Meta Quest 2 je osvědčená a spolehlivá volba. Hodí se jak pro domácí zábavu, tak pro narozeninové oslavy, rodinná setkání nebo menší akce. Bez problémů zabaví děti, teenagery i dospělé.
-                </p>
+                <ExpandableText
+                  preview={(
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65, margin: 0 }}>
+                      Ideální volba pro rodiny, začátečníky i uživatele, kteří se s virtuální realitou teprve seznamují. <strong style={{ color: 'var(--text)' }}>Meta Quest 2</strong> nabízí velmi intuitivní ovládání, pohodlný headset a přístup ke stovkám kvalitních her, aplikací a interaktivních zážitků. Díky jednoduchému nastavení a bezdrátovému provozu je připraven k použití během několika minut, bez nutnosti složité instalace nebo připojení k počítači.
+                    </p>
+                  )}
+                  extra={(
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65, margin: '1rem 0 0' }}>
+                      Pokud hledáte cenově dostupný pronájem virtuální reality, který zároveň nabídne vysokou kvalitu obrazu a plynulý chod, Meta Quest 2 je osvědčená a spolehlivá volba. Hodí se jak pro domácí zábavu, tak pro narozeninové oslavy, rodinná setkání nebo menší akce. Bez problémů zabaví děti, teenagery i dospělé.
+                    </p>
+                  )}
+                />
                 </div>
               </div>
 
@@ -249,12 +256,18 @@ export default function Zapujceni() {
                   Nejnovější generace v naší půjčovně – špičkový obraz a výkon pro náročné.
                 </p>
                 <h4 style={{ fontSize: '1rem', color: 'var(--cyan)', marginBottom: '0.75rem', fontWeight: 600 }}>Proč půjčit Quest 3?</h4>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65, marginBottom: '1rem' }}>
-                  <strong style={{ color: 'var(--text)' }}>Meta Quest 3</strong> představuje to nejlepší, co naše půjčovna virtuální reality aktuálně nabízí, a je určen pro náročnější uživatele, kteří chtějí maximální kvalitu obrazu i celkového zážitku. Díky moderním pancake čočkám, vyššímu rozlišení a výrazně vyššímu výkonu je obraz mimořádně ostrý, realistický a plynulý i při náročných hrách a aplikacích.
-                </p>
-                <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65 }}>
-                  Pokud si chcete domů přinést tu nejmodernější technologii a zažít skutečný „wow" efekt hned od prvního nasazení, je pronájem Meta Quest 3 tou nejlepší volbou. Hodí se nejen pro domácí hraní, ale také pro oslavy, speciální příležitosti, firemní akce nebo prezentace, kde chcete zaujmout a nadchnout hosty.
-                </p>
+                <ExpandableText
+                  preview={(
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65, margin: 0 }}>
+                      <strong style={{ color: 'var(--text)' }}>Meta Quest 3</strong> představuje to nejlepší, co naše půjčovna virtuální reality aktuálně nabízí, a je určen pro náročnější uživatele, kteří chtějí maximální kvalitu obrazu i celkového zážitku. Díky moderním pancake čočkám, vyššímu rozlišení a výrazně vyššímu výkonu je obraz mimořádně ostrý, realistický a plynulý i při náročných hrách a aplikacích.
+                    </p>
+                  )}
+                  extra={(
+                    <p style={{ fontSize: '0.92rem', color: 'var(--text-dim)', lineHeight: 1.65, margin: '1rem 0 0' }}>
+                      Pokud si chcete domů přinést tu nejmodernější technologii a zažít skutečný „wow" efekt hned od prvního nasazení, je pronájem Meta Quest 3 tou nejlepší volbou. Hodí se nejen pro domácí hraní, ale také pro oslavy, speciální příležitosti, firemní akce nebo prezentace, kde chcete zaujmout a nadchnout hosty.
+                    </p>
+                  )}
+                />
                 </div>
               </div>
             </div>
