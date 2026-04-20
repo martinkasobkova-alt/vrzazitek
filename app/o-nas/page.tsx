@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import ContactMapCard from '@/components/ContactMapCard';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -7,6 +8,66 @@ export const metadata: Metadata = {
   description: 'Jsme rodinná půjčovna virtuální reality. Zapůjčení VR, výběr her, doprava, instalace a podpora na místě. Kontakt: info@vrzazitek.cz, +420 604 160 718.',
   alternates: { canonical: 'https://www.vrzazitek.cz/o-nas' },
 };
+
+function ContactHeroIllustration() {
+  return (
+    <svg
+      viewBox="0 0 460 400"
+      xmlns="http://www.w3.org/2000/svg"
+      width="100%"
+      height="auto"
+      style={{ maxWidth: 440, display: 'block' }}
+      aria-hidden
+    >
+      <defs>
+        <linearGradient id="onas-contact-q-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#0891b2" />
+          <stop offset="48%" stopColor="#3b82f6" />
+          <stop offset="100%" stopColor="#7c3aed" />
+        </linearGradient>
+        <filter id="onas-contact-q-soft" x="-15%" y="-15%" width="130%" height="130%">
+          <feGaussianBlur stdDeviation="3" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <path
+        d="M 78 108 C 78 44 148 22 222 34 C 302 48 332 128 276 188 C 246 224 198 236 198 278 L 198 316"
+        fill="none"
+        stroke="url(#onas-contact-q-grad)"
+        strokeWidth="32"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        filter="url(#onas-contact-q-soft)"
+        opacity={0.94}
+      />
+      <circle cx={198} cy={364} r={24} fill="url(#onas-contact-q-grad)" opacity={0.93} />
+      <g transform="translate(258, 158)">
+        <path
+          d="M 4 48 Q -18 92 4 136 M 164 48 Q 186 92 164 136"
+          fill="none"
+          stroke="url(#onas-contact-q-grad)"
+          strokeWidth="7"
+          strokeLinecap="round"
+        />
+        <rect
+          x="4"
+          y="38"
+          width="160"
+          height="86"
+          rx="28"
+          fill="rgba(255,255,255,0.2)"
+          stroke="url(#onas-contact-q-grad)"
+          strokeWidth="4.5"
+        />
+        <ellipse cx="56" cy="81" rx="26" ry="30" fill="rgba(8,145,178,0.16)" stroke="url(#onas-contact-q-grad)" strokeWidth="3.5" />
+        <ellipse cx="112" cy="81" rx="26" ry="30" fill="rgba(124,58,237,0.14)" stroke="url(#onas-contact-q-grad)" strokeWidth="3.5" />
+      </g>
+    </svg>
+  );
+}
 
 export default function ONas() {
   return (
@@ -24,28 +85,41 @@ export default function ONas() {
         ></div>
 
         <section style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)' }}>
-          <div className="container" style={{ maxWidth: 900 }}>
-            <span className="eyebrow hero-intro-item hero-intro-item--1">Kontakt a náš tým</span>
-            <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
-              Zeptejte se nás <span className="gradient-text">na cokoliv.</span>
-            </h1>
-            <p
-              className="lead hero-intro-item hero-intro-item--3"
-              style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
-            >
-              Ať už máte jakýkoliv dotaz ohledně zapůjčení VR, neváhejte se na nás obrátit. Rádi vám s čímkoliv poradíme! V Praze a Berouně nabízíme také možnost osobního setkání.
-            </p>
-            <div className="hero-intro-item hero-intro-item--4" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-              <a href="mailto:info@vrzazitek.cz" className="btn btn-primary">✉️ info@vrzazitek.cz</a>
-              <a href="tel:+420604160718" className="btn btn-ghost">+420 604 160 718</a>
+          <div className="container split">
+            <div>
+              <span className="eyebrow hero-intro-item hero-intro-item--1">Kontakt a náš tým</span>
+              <h1 className="hero-intro-item hero-intro-item--2" style={{ marginBottom: '1.5rem' }}>
+                Zeptejte se nás <span className="gradient-text">na cokoliv.</span>
+              </h1>
+              <p
+                className="lead hero-intro-item hero-intro-item--3"
+                style={{ marginBottom: '2rem', fontSize: 'clamp(1rem, 1.5vw, 1.15rem)' }}
+              >
+                Ať už máte jakýkoliv dotaz ohledně zapůjčení VR, neváhejte se na nás obrátit. Rádi vám s čímkoliv poradíme! V Praze a Berouně nabízíme také možnost osobního setkání.
+              </p>
+              <div className="hero-intro-item hero-intro-item--4" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                <a href="mailto:info@vrzazitek.cz" className="btn btn-primary">✉️ info@vrzazitek.cz</a>
+                <a href="tel:+420604160718" className="btn btn-ghost">+420 604 160 718</a>
+              </div>
+              <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
+                <a href="https://www.instagram.com/vrzazitek.cz/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
+                  Instagram
+                </a>
+                <a href="https://www.facebook.com/vrzazitek/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
+                  Facebook
+                </a>
+              </div>
             </div>
-            <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '0.75rem', marginTop: '1.25rem' }}>
-              <a href="https://www.instagram.com/vrzazitek.cz/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
-                Instagram
-              </a>
-              <a href="https://www.facebook.com/vrzazitek/" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ fontSize: '0.8rem', padding: '0.5rem 1rem' }}>
-                Facebook
-              </a>
+            <div
+              className="hero-intro-visual"
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: 'clamp(200px, 28vw, 340px)',
+              }}
+            >
+              <ContactHeroIllustration />
             </div>
           </div>
         </section>
@@ -213,15 +287,7 @@ export default function ONas() {
                 <a href="mailto:info@vrzazitek.cz" className="btn btn-ghost">✉️ info@vrzazitek.cz</a>
               </div>
             </div>
-            <div className="media-card-dark">
-              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.3rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1 }}>info@</div>
-                <div style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.3rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1 }}>vrzazitek.cz</div>
-                <div style={{ marginTop: '1.25rem', fontSize: '0.75rem', letterSpacing: '0.18em', opacity: 0.9 }}>
-                  PRAHA • BEROUN • CELÁ ČR
-                </div>
-              </div>
-            </div>
+            <ContactMapCard />
           </div>
         </section>
       </div>

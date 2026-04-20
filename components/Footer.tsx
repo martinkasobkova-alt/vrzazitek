@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import BrandLogo from '@/components/BrandLogo';
 
 export default function Footer() {
   return (
     <footer
-      className="block block-deep"
+      className="block block-deep site-footer"
       data-scroll-reveal
-      style={{ marginTop: 'clamp(2rem, 5vw, 4rem)', position: 'relative' }}
+      style={{ position: 'relative' }}
     >
       <div className="grid-bg"></div>
       <div className="orb orb-dark-cyan" style={{ width: 300, height: 300, top: -100, right: '10%' }}></div>
@@ -19,16 +20,7 @@ export default function Footer() {
           marginBottom: '3rem',
         }}>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-              <div style={{
-                width: 40, height: 40, borderRadius: 10,
-                background: 'linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6)',
-                display: 'grid', placeItems: 'center',
-                fontWeight: 700, color: '#fff',
-                boxShadow: '0 4px 20px rgba(59, 130, 246, 0.35)',
-              }}>VR</div>
-              <span style={{ fontWeight: 700, fontSize: '1.1rem' }}>VRzazitek.cz</span>
-            </div>
+            <BrandLogo variant="footer" />
             <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'rgba(224, 236, 255, 0.75)' }}>
               Profesionální realizace virtuální a rozšířené reality pro firmy, teambuilding a domácnosti v ČR.
             </p>

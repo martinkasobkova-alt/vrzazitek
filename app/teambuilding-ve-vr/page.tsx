@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
+import ContactMapCard from '@/components/ContactMapCard';
 
 export const metadata: Metadata = {
   title: 'VR teambuilding pro firmy | Firemní akce ve virtuální realitě',
@@ -158,15 +159,53 @@ export default function Teambuilding() {
         </section>
       </div>
 
-      {/* PRICING PACKAGES */}
-      <div className="block block-mint" id="cenik" data-scroll-reveal>
+      {/* ACTIVITIES */}
+      <div className="block block-mint" data-scroll-reveal>
         <div className="grid-bg"></div>
         <div className="orb orb-blue" style={{ width: 350, height: 350, top: -80, left: '20%' }}></div>
+        <div className="orb orb-cyan" style={{ width: 300, height: 300, bottom: -40, right: '8%' }}></div>
+        <section>
+          <div className="container">
+            <div className="text-center" style={{ marginBottom: '3rem' }}>
+              <span className="tag-pill">Aktivity</span>
+              <h2>Vyberte si nejlepší <span className="gradient-text">VR aktivity.</span></h2>
+              <p className="lead" style={{ margin: '1rem auto 0' }}>
+                Sport, kooperace, závody i logické únikovky — vybereme mix, co sedí kultuře firmy.
+              </p>
+            </div>
+            <div className="grid-activities">
+              {activities.map((a, i) => (
+                <div key={i} className="svc-card pillar-card occasion-tile">
+                  <img
+                    className="pillar-card__bg"
+                    src={a.image}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    aria-hidden
+                  />
+                  <div className="pillar-card__scrim" aria-hidden />
+                  <div className="pillar-card__body">
+                    <h3 style={{ marginBottom: '0.5rem' }}>{a.title}</h3>
+                    <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>{a.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {/* PRICING PACKAGES */}
+      <div className="block block-deep" id="cenik" data-scroll-reveal>
+        <div className="grid-bg"></div>
+        <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
+        <div className="orb orb-dark-purple" style={{ width: 300, height: 300, bottom: 0, right: '10%' }}></div>
         <section>
           <div className="container">
             <div className="text-center" style={{ marginBottom: '3rem' }}>
               <span className="tag-pill">Ceník</span>
-              <h2>Ceník <span className="gradient-text">VR teambuildingu.</span></h2>
+              <h2>Ceník <span className="gradient-text-light">VR teambuildingu.</span></h2>
               <p className="lead" style={{ margin: '1rem auto 0' }}>
                 Ceny zahrnují dopravu, instalaci, obsluhu a technický servis.
               </p>
@@ -197,44 +236,7 @@ export default function Teambuilding() {
             </div>
             <div className="svc-card text-center" style={{ marginTop: '2rem', padding: '1.5rem 2rem' }}>
               💡 <strong>Máte větší tým nebo speciální požadavky?</strong>{' '}
-              <span className="text-dim">Uděláme nabídku na míru. Možnost rozšíření až na 10 headsetů.</span>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* ACTIVITIES */}
-      <div className="block block-deep" data-scroll-reveal>
-        <div className="grid-bg"></div>
-        <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
-        <div className="orb orb-dark-purple" style={{ width: 300, height: 300, bottom: 0, right: '10%' }}></div>
-        <section>
-          <div className="container">
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
-              <span className="tag-pill">Aktivity</span>
-              <h2>Vyberte si nejlepší <span className="gradient-text-light">VR aktivity.</span></h2>
-              <p className="lead" style={{ margin: '1rem auto 0' }}>
-                Sport, kooperace, závody i logické únikovky — vybereme mix, co sedí kultuře firmy.
-              </p>
-            </div>
-            <div className="grid-activities">
-              {activities.map((a, i) => (
-                <div key={i} className="svc-card pillar-card occasion-tile">
-                  <img
-                    className="pillar-card__bg"
-                    src={a.image}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    aria-hidden
-                  />
-                  <div className="pillar-card__scrim" aria-hidden />
-                  <div className="pillar-card__body">
-                    <h3 style={{ marginBottom: '0.5rem' }}>{a.title}</h3>
-                    <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>{a.desc}</p>
-                  </div>
-                </div>
-              ))}
+              <span style={{ opacity: 0.88 }}>Uděláme nabídku na míru. Možnost rozšíření až na 10 headsetů.</span>
             </div>
           </div>
         </section>
@@ -256,19 +258,7 @@ export default function Teambuilding() {
                 <a href="tel:+420737627000" className="btn btn-ghost">+420 737 627 000</a>
               </div>
             </div>
-            <div className="media-card-dark">
-              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
-                  Team Pro
-                </div>
-                <div className="gradient-text-light" style={{ fontSize: '2.2rem', fontWeight: 700, marginTop: '0.75rem', marginBottom: '0.5rem' }}>
-                  24 999 Kč
-                </div>
-                <div style={{ fontSize: '0.85rem', opacity: 0.85 }}>
-                  Nejoblíbenější balíček
-                </div>
-              </div>
-            </div>
+            <ContactMapCard />
           </div>
         </section>
       </div>

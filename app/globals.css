@@ -68,6 +68,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Bez mezery barvy body mezi obsahem a patičkou (margin u patičky / margin-collapse) */
+main {
+  display: flow-root;
+  margin-bottom: 0;
+}
+.site-footer {
+  margin-top: 0;
+}
+
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; height: auto; display: block; }
 
@@ -135,6 +144,124 @@ h3 { font-size: clamp(1.1rem, 1.8vw, 1.25rem); margin-bottom: 0.5rem; letter-spa
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
+}
+
+/* Logo = stejný gradient + tučnost jako nadpis „pro firmy i domů“ (Space Grotesk 700) */
+.site-logo-link {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  text-decoration: none;
+  padding: 0.2rem 0;
+  margin: -0.2rem 0;
+  border-radius: 0;
+}
+.site-logo-link--header {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+.site-logo-stack {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+/* Profil s headsetem (PNG + alfa maska) → přesně stejný gradient jako název, plná sytost */
+.site-logo-profile {
+  flex-shrink: 0;
+  display: block;
+  background-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+}
+.site-logo-profile--header {
+  width: 48px;
+  height: 48px;
+  background-image: var(--gradient-text);
+  filter: drop-shadow(0 1px 2px rgba(8, 145, 178, 0.25)) drop-shadow(0 2px 8px rgba(59, 130, 246, 0.2));
+}
+.site-logo-profile--footer {
+  width: 52px;
+  height: 52px;
+  background-image: var(--gradient-text-light);
+  filter: drop-shadow(0 0 12px rgba(103, 232, 249, 0.35));
+}
+.site-logo-words {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+.site-logo-name {
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+/* Stejný přechod jako .gradient-text v hero */
+.site-logo-name--header {
+  font-size: clamp(1.08rem, 2.4vw, 1.28rem);
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.site-logo-name--footer {
+  font-size: clamp(1.12rem, 2.5vw, 1.32rem);
+  background: var(--gradient-text-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 1px 10px rgba(34, 211, 238, 0.25));
+}
+.site-logo-slogan {
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-transform: uppercase;
+  max-width: 16.5rem;
+}
+.site-logo-slogan--header {
+  color: var(--text);
+  opacity: 0.88;
+}
+.site-logo-slogan--header strong {
+  font-weight: 700;
+  color: var(--blue-dark);
+  letter-spacing: 0.06em;
+}
+.site-logo-slogan--footer {
+  color: rgba(224, 236, 255, 0.88);
+}
+.site-logo-slogan--footer strong {
+  font-weight: 700;
+  color: var(--cyan-bright);
+  letter-spacing: 0.06em;
+}
+.site-logo-link--footer .site-logo-stack {
+  margin-bottom: 1rem;
+}
+@media (max-width: 480px) {
+  .site-logo-profile--header {
+    width: 40px;
+    height: 40px;
+  }
+  .site-logo-slogan--header,
+  .site-logo-slogan--footer {
+    font-size: 0.52rem;
+    max-width: 12.5rem;
+  }
 }
 
 .eyebrow {
@@ -360,7 +487,7 @@ section {
   min-height: unset;
   aspect-ratio: 1;
   width: 100%;
-  max-height: min(92vw, 380px);
+  max-height: min(98vw, 440px);
   margin-inline: auto;
 }
 .home-svc-tile .pillar-card__body {
@@ -498,6 +625,54 @@ section {
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.5), transparent 50%);
+}
+.media-card-dark--map {
+  padding: 0;
+  display: block;
+  background: var(--paper-light);
+}
+.media-card-dark--map::before {
+  display: none;
+}
+.media-card-dark--map iframe {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  border: 0;
+  border-radius: inherit;
+}
+
+/* CTA karta: adresa + mapa */
+.media-card-dark--stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  aspect-ratio: auto;
+  padding: 0;
+  background: var(--paper-light);
+  color: var(--text);
+  overflow: hidden;
+}
+.media-card-dark--stack::before {
+  display: none;
+}
+.media-card-dark__map-block {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(200px, 28vw, 280px);
+  background: var(--paper-light);
+}
+.media-card-dark__map-block iframe {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 220px;
+  border: 0;
+  display: block;
 }
 
 /* Stats */

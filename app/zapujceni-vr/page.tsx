@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
+import ContactMapCard from '@/components/ContactMapCard';
 
 export const metadata: Metadata = {
   title: 'Zapůjčení VR headsetů domů | Pronájem virtuální reality – VR Zážitek',
@@ -372,22 +373,7 @@ export default function Zapujceni() {
                 <a href="mailto:info@vrzazitek.cz" className="btn btn-ghost">✉️ info@vrzazitek.cz</a>
               </div>
             </div>
-            <div className="media-card-dark">
-              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
-                  Meta Quest 3
-                </div>
-                <div className="gradient-text-light" style={{ fontSize: '2.2rem', fontWeight: 700, marginTop: '0.75rem', marginBottom: '0.25rem' }}>
-                  od 1 299 Kč
-                </div>
-                <div style={{ fontSize: '0.75rem', letterSpacing: '0.15em', opacity: 0.7, marginBottom: '1rem' }}>
-                  / DEN
-                </div>
-                <div style={{ fontSize: '0.85rem', opacity: 0.85 }}>
-                  Nejnovější VR technologie
-                </div>
-              </div>
-            </div>
+            <ContactMapCard />
           </div>
         </section>
       </div>

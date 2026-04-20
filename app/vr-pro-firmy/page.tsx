@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
 import ReferenceLogoMarquee from '@/components/ReferenceLogoMarquee';
+import ContactMapCard from '@/components/ContactMapCard';
 
 export const metadata: Metadata = {
   title: 'Pronájem virtuální reality (VR) & AR pro firmy | Eventy & teambuilding',
@@ -148,7 +149,7 @@ export default function VrProFirmy() {
         <section>
           <div className="container">
             <div className="text-center" style={{ marginBottom: '3rem' }}>
-              <span className="tag-pill">Tři pilíře</span>
+              <span className="tag-pill">Tři pilíře VR služeb</span>
               <h2>Využití virtuální a rozšířené reality <span className="gradient-text">ve firmách.</span></h2>
             </div>
             <div className="grid-3">
@@ -287,19 +288,7 @@ export default function VrProFirmy() {
                 <a href="tel:+420737627000" className="btn btn-ghost">+420 737 627 000</a>
               </div>
             </div>
-            <div className="media-card-dark">
-              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '0.75rem' }}>
-                  Firemní akce
-                </div>
-                <div style={{ fontSize: '0.9rem', opacity: 0.85 }}>
-                  od 10 po 5 000+ účastníků
-                </div>
-                <div className="gradient-text-light" style={{ fontSize: '1.75rem', fontWeight: 700, marginTop: '1rem' }}>
-                  Na klíč
-                </div>
-              </div>
-            </div>
+            <ContactMapCard />
           </div>
         </section>
       </div>

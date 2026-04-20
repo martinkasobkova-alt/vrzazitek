@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import BrandLogo from '@/components/BrandLogo';
 
 const nav = [
   { href: '/', label: 'Úvod' },
@@ -39,19 +40,7 @@ export default function Header() {
         justifyContent: 'space-between',
         padding: '1rem 1.5rem',
       }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <div style={{
-            width: 36, height: 36,
-            borderRadius: 10,
-            background: 'linear-gradient(135deg, #22d3ee, #3b82f6, #8b5cf6)',
-            display: 'grid', placeItems: 'center',
-            fontWeight: 700, color: '#fff', fontSize: 13,
-            boxShadow: '0 4px 20px rgba(59, 130, 246, 0.35)',
-          }}>VR</div>
-          <span style={{ fontWeight: 700, fontSize: '1.05rem', letterSpacing: '-0.02em', color: 'var(--text)' }}>
-            VRzazitek<span style={{ color: 'var(--cyan)' }}>.cz</span>
-          </span>
-        </Link>
+        <BrandLogo />
 
         <nav className="desktop-nav" style={{
           display: 'flex', gap: '0.25rem', alignItems: 'center',

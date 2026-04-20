@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import HeroVisual from '@/components/HeroVisual';
+import ContactMapCard from '@/components/ContactMapCard';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
@@ -47,6 +48,7 @@ export default function Home() {
               >
                 <Link href="/objednani-vr" className="btn btn-primary">Poptat →</Link>
                 <Link href="/vr-pro-firmy" className="btn btn-ghost">VR pro firmy</Link>
+                <Link href="/zapujceni-vr" className="btn btn-ghost">VR domů</Link>
               </div>
 
               <div className="hero-intro-item hero-intro-item--5" style={{ display: 'flex', gap: '1.75rem', flexWrap: 'wrap' }}>
@@ -84,32 +86,63 @@ export default function Home() {
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, left: -50 }}></div>
         <div className="orb orb-purple" style={{ width: 250, height: 250, bottom: -50, right: '10%' }}></div>
 
-        <section>
-          <div className="container split">
-            <div>
-              <span className="tag-pill">Služby</span>
-              <h2>Co <span className="gradient-text">umíme</span> nejlépe.</h2>
-              <p className="lead" style={{ marginBottom: '1.5rem' }}>
-                <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> zajišťuje virtuální realitu pro firmy i domácnosti v Praze, Berouně a po celé ČR. Specializujeme se na <strong style={{ color: 'var(--text)' }}>firemní eventy</strong>, konference, promo akce a <strong style={{ color: 'var(--text)' }}>teambuilding ve VR</strong>.
-              </p>
-              <p className="lead" style={{ marginBottom: '2rem' }}>
-                Doručíme techniku, připravíme obsah, zajistíme sdílení obrazu a obsluhu na místě. Pro jednotlivce nabízíme službu <strong style={{ color: 'var(--text)' }}>půjčovna VR domů</strong> – headset s vybranými hrami doručíme a vysvětlíme ovládání.
-              </p>
-              <Link href="/vr-pro-firmy" className="btn btn-primary">VR pro firmy →</Link>
-            </div>
+        <section style={{ paddingTop: 'clamp(2rem, 4vw, 3.25rem)', paddingBottom: 'clamp(2.25rem, 4.5vw, 3.75rem)' }}>
+          <div className="container">
+            <div className="split" style={{ gap: 'clamp(1.35rem, 3.5vw, 2.25rem)', alignItems: 'start' }}>
+              <div>
+                <span className="tag-pill">Služby</span>
+                <h2 style={{ marginBottom: '1rem' }}>Co <span className="gradient-text">umíme</span> nejlépe.</h2>
+                <p className="lead" style={{ marginBottom: '1.15rem' }}>
+                  <strong style={{ color: 'var(--text)' }}>VRzazitek.cz</strong> zajišťuje virtuální realitu pro firmy i domácnosti v Praze, Berouně a po celé ČR. Specializujeme se na <strong style={{ color: 'var(--text)' }}>firemní eventy</strong>, konference, promo akce a <strong style={{ color: 'var(--text)' }}>teambuilding ve VR</strong>.
+                </p>
+                <p className="lead" style={{ marginBottom: 0 }}>
+                  Doručíme techniku, připravíme obsah, zajistíme sdílení obrazu a obsluhu na místě. Pro jednotlivce nabízíme službu <strong style={{ color: 'var(--text)' }}>půjčovna VR domů</strong> – headset s vybranými hrami doručíme a vysvětlíme ovládání.
+                </p>
 
-            <div className="media-card" style={{ padding: 0, overflow: 'hidden', background: 'none' }}>
-              <img
-                src={images.whatWeDo}
-                alt="VR event a technologie"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
-              />
-              {/* Gradient overlay for brand consistency */}
-              <div style={{
-                position: 'absolute', inset: 0,
-                background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(124, 58, 237, 0.25))',
-                mixBlendMode: 'multiply',
-              }}></div>
+                <div style={{ marginTop: 'clamp(1.25rem, 2.5vw, 1.85rem)', maxWidth: 540 }}>
+                  <h3 style={{ fontSize: '1.35rem', marginBottom: '1.1rem' }}>Co umíme rychle dodat</h3>
+                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+                    {['Eventy a konference', 'Teambuilding na míru', 'VR domů bez starostí', 'Kompletní realizace bez starostí'].map((item, i) => (
+                      <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontSize: '0.98rem' }}>
+                        <span style={{
+                          width: 22, height: 22, borderRadius: '50%',
+                          background: 'var(--gradient-btn)', color: '#fff',
+                          display: 'grid', placeItems: 'center',
+                          fontSize: '0.75rem', fontWeight: 700, flexShrink: 0,
+                        }}>✓</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', minWidth: 0, width: '100%', alignSelf: 'start' }}>
+                <div
+                  className="media-card"
+                  style={{
+                    padding: 0,
+                    overflow: 'hidden',
+                    background: 'none',
+                    flex: 1,
+                    width: '100%',
+                    aspectRatio: 'auto',
+                    minHeight: 'clamp(320px, 42vw, 540px)',
+                    boxShadow: '0 12px 40px rgba(59, 130, 246, 0.12)',
+                  }}
+                >
+                  <img
+                    src={images.whatWeDo}
+                    alt="VR event a technologie"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', inset: 0 }}
+                  />
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    background: 'linear-gradient(135deg, rgba(8, 145, 178, 0.35), rgba(124, 58, 237, 0.25))',
+                    mixBlendMode: 'multiply',
+                  }}></div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -124,7 +157,7 @@ export default function Home() {
         <section style={{ paddingBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
           <div className="container">
             <div className="text-center" style={{ marginBottom: '3rem' }}>
-              <span className="tag-pill">Tři pilíře</span>
+              <span className="tag-pill">Tři pilíře VR služeb</span>
               <h2 style={{ maxWidth: 780, margin: '0 auto' }}>
                 Virtuální realita pro <span className="gradient-text">firmy i domů.</span>
               </h2>
@@ -144,7 +177,11 @@ export default function Home() {
                 <div className="pillar-card__body">
                   <div className="num">01 — FIREMNÍ EVENTY</div>
                   <h3 style={{ marginBottom: '0.5rem' }}>Firemní eventy</h3>
-                  <p style={{ marginBottom: 0 }}>VR/AR zóna na konferenci nebo večírku. Vše přivezeme a obsloužíme.</p>
+                  <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>
+                    Interaktivní VR nebo AR zóna ozvláštní konferenci, večírek i firemní den. Kompletní techniku přivezeme,
+                    nainstalujeme a po celou dobu akce se postaráme o návštěvníky — od prvního nasazení headsetu až po hladký průběh programu.
+                    Vy tak řešíte jen hosty a harmonogram, my zajistíme zážitek bez technických starostí.
+                  </p>
                   <div className="home-svc-tile__cta">Zjistit více →</div>
                 </div>
               </Link>
@@ -161,7 +198,11 @@ export default function Home() {
                 <div className="pillar-card__body">
                   <div className="num">02 — TEAMBUILDING</div>
                   <h3 style={{ marginBottom: '0.5rem' }}>Teambuilding</h3>
-                  <p style={{ marginBottom: 0 }}>Kooperativní zážitky pro tým. Scénář na míru, kdekoliv.</p>
+                  <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>
+                    Kooperativní hry a týmové mise, kde se projeví komunikace, důvěra i lehká soutěživost — bez nucených „kruhů“
+                    na zemi. Scénář sestavíme podle velikosti týmu, cíle setkání a kultury firmy; realizace je možná u vás v sídle,
+                    na offsite nebo v pronajatém prostoru kdekoli po České republice.
+                  </p>
                   <div className="home-svc-tile__cta">Zjistit více →</div>
                 </div>
               </Link>
@@ -178,46 +219,14 @@ export default function Home() {
                 <div className="pillar-card__body">
                   <div className="num">03 — VR DOMŮ</div>
                   <h3 style={{ marginBottom: '0.5rem' }}>VR domů</h3>
-                  <p style={{ marginBottom: 0 }}>Headset s hrami doručíme. Jednoduše a rychle.</p>
+                  <p style={{ marginBottom: 0, fontSize: '0.88rem', lineHeight: 1.55 }}>
+                    Pronajmeme vám Meta Quest s výběrem her a aplikací pro rodinu, partu i klidné večery ve dvou. Kompletní set
+                    včetně příslušenství doručíme, stručně zaškolíme a během zápůjčky jsme na telefonu nebo mailu, kdyby bylo potřeba
+                    cokoli rychle doladit. Žádné složité nastavování — zapnout, zorientovat se a hrát.
+                  </p>
                   <div className="home-svc-tile__cta">Zjistit více →</div>
                 </div>
               </Link>
-            </div>
-
-            {/* What we deliver */}
-            <div className="split" style={{ marginTop: '4rem' }}>
-              <div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '1.25rem' }}>Co umíme rychle dodat</h3>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                  {['Eventy a konference', 'Teambuilding na míru', 'VR domů bez starostí', 'Kompletní realizace bez starostí'].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', fontSize: '1rem' }}>
-                      <span style={{
-                        width: 22, height: 22, borderRadius: '50%',
-                        background: 'var(--gradient-btn)', color: '#fff',
-                        display: 'grid', placeItems: 'center',
-                        fontSize: '0.75rem', fontWeight: 700, flexShrink: 0,
-                      }}>✓</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="svc-card" style={{ background: 'rgba(255, 255, 255, 0.85)' }}>
-                <h3 style={{ marginBottom: '1rem' }}>Co dodáváme v balíčku</h3>
-                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {[
-                    { icon: '🥽', text: 'Headsety + připravený obsah' },
-                    { icon: '📺', text: 'Sdílení obrazu (TV / plátno)' },
-                    { icon: '👩‍💻', text: 'Technická podpora na místě' },
-                    { icon: '⚡', text: 'Flexibilní setup dle prostoru' },
-                  ].map((item, i) => (
-                    <li key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <span style={{ fontSize: '1.2rem' }}>{item.icon}</span>
-                      <span style={{ color: 'var(--text-dim)', fontSize: '0.92rem' }}>{item.text}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
           </div>
         </section>
@@ -282,15 +291,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="media-card-dark">
-              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.3rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1 }}>info@</div>
-                <div style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.3rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1 }}>vrzazitek.cz</div>
-                <div style={{ marginTop: '1.25rem', fontSize: '0.75rem', letterSpacing: '0.18em', opacity: 0.9 }}>
-                  PRAHA • BEROUN • CELÁ ČR
-                </div>
-              </div>
-            </div>
+            <ContactMapCard />
           </div>
         </section>
       </div>

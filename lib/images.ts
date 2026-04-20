@@ -14,6 +14,11 @@
  */
 
 export const images = {
+  // Logo (wordmark + slogan v jednom PNG; barva se řeší v globals.css přes mask + gradient)
+  logoWordmark: '/images/vrzazitek-logo-wordmark.png',
+  // Ikona loga – profil s VR headsetem (průhledné pozadí; vyplnění = gradient v BrandLogo)
+  logoProfile: '/images/vrzazitek-logo-profile.png',
+
   // Hero na homepage – stejný vizuál jako na živém vrzazitek.cz
   hero: '/images/vrzazitek-hero.webp',
 
@@ -66,13 +71,13 @@ export const images = {
   teamMarta: '/images/vrzazitek-team-marta.webp',
   teamZuzka: '/images/vrzazitek-team-zuzka.webp',
 
-  // Produkt / VR záběr pro stránku půjčovny (člověk s headsetem, ne studiová produktovka)
+  // Produkt / VR záběr (Meta Quest 2 – bílý předek; ne Pico s černým „viseorem“)
   productQuest:
-    'https://images.unsplash.com/photo-1710740326983-75163a9dd326?w=1000&q=80&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1622979136680-b44cd64ff302?w=1000&q=80&auto=format&fit=crop',
 
-  // Zapůjčení VR – karta Meta Quest 2 (lifestyle; bílý Quest na hlavě)
+  // Zapůjčení VR – karta Meta Quest 2 (stejná řada jako Unsplash „Oculus Quest 2 VR headset“, jiný záběr než whatWeDo)
   productMetaQuest2:
-    'https://images.unsplash.com/photo-1710740326983-75163a9dd326?w=1400&q=80&auto=format&fit=crop',
+    'https://images.unsplash.com/photo-1622979136680-b44cd64ff302?w=1400&q=80&auto=format&fit=crop',
   productMetaQuest3:
     'https://images.unsplash.com/photo-1698050683094-b7e0e57ea903?w=1400&q=80&auto=format&fit=crop',
 };

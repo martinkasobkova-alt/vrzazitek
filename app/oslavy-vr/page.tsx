@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { images } from '@/lib/images';
+import ContactMapCard from '@/components/ContactMapCard';
 
 export const metadata: Metadata = {
   title: 'VR oslavy a narozeniny v Praze | VR zážitek – přivezeme VR k vám',
@@ -276,19 +277,7 @@ export default function Oslavy() {
                 <a href="tel:+420737627000" className="btn btn-ghost">+420 737 627 000</a>
               </div>
             </div>
-            <div className="media-card-dark">
-              <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1 }}>
-                  Párty balíček
-                </div>
-                <div className="gradient-text-light" style={{ fontSize: '2.2rem', fontWeight: 700, marginTop: '0.75rem', marginBottom: '0.5rem' }}>
-                  8 999 Kč
-                </div>
-                <div style={{ fontSize: '0.85rem', opacity: 0.85 }}>
-                  2× Meta Quest 3 + obsluha
-                </div>
-              </div>
-            </div>
+            <ContactMapCard />
           </div>
         </section>
       </div>
