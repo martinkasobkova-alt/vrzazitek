@@ -121,7 +121,7 @@ export default function Home() {
         <div className="orb orb-cyan" style={{ width: 350, height: 350, top: -80, right: '20%' }}></div>
         <div className="orb orb-blue" style={{ width: 250, height: 250, bottom: '10%', left: -50 }}></div>
 
-        <section>
+        <section style={{ paddingBottom: 'clamp(2.5rem, 5vw, 4rem)' }}>
           <div className="container">
             <div className="text-center" style={{ marginBottom: '3rem' }}>
               <span className="tag-pill">Tři pilíře</span>
@@ -223,15 +223,24 @@ export default function Home() {
         </section>
       </div>
 
-      {/* BLOCK 4: PAPER - FAQ */}
-      <div className="block block-paper" data-scroll-reveal>
-        <div className="orb orb-blue" style={{ width: 300, height: 300, top: '10%', right: -100 }}></div>
+      {/* BLOCK 4: DEEP BLUE - FAQ */}
+      <div className="block block-deep" data-scroll-reveal>
+        <div className="grid-bg"></div>
+        <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
+        <div className="orb orb-dark-purple" style={{ width: 300, height: 300, bottom: 0, right: '10%' }}></div>
 
-        <section>
+        <section
+          style={{
+            paddingTop: 'clamp(1.25rem, 2.5vw, 2rem)',
+            paddingBottom: 'clamp(4rem, 8vw, 6rem)',
+          }}
+        >
           <div className="container" style={{ maxWidth: 900 }}>
-            <div className="text-center" style={{ marginBottom: '3rem' }}>
+            <div className="text-center" style={{ marginBottom: '2.25rem' }}>
               <span className="tag-pill">FAQ</span>
-              <h2>Časté dotazy</h2>
+              <h2>
+                <span className="gradient-text-light">Časté dotazy</span>
+              </h2>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {[
@@ -242,11 +251,11 @@ export default function Home() {
                 { q: 'Jak velký prostor je potřeba pro VR?', a: 'Pro jeden headset obvykle stačí cca 2×2 m. Setup upravíme podle prostoru (konference, kancelář, sál).' },
               ].map((item, i) => (
                 <details key={i} className="svc-card" style={{ cursor: 'pointer', padding: '1.25rem 1.75rem' }}>
-                  <summary style={{ fontWeight: 600, fontSize: '1rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <summary style={{ fontWeight: 600, fontSize: '1rem', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'var(--text-on-dark)' }}>
                     <span>{item.q}</span>
                     <span className="plus">+</span>
                   </summary>
-                  <p style={{ marginTop: '1rem', fontSize: '0.93rem', color: 'var(--text-dim)', lineHeight: 1.65 }}>{item.a}</p>
+                  <p style={{ marginTop: '1rem', fontSize: '0.93rem', lineHeight: 1.65 }}>{item.a}</p>
                 </details>
               ))}
             </div>
@@ -254,45 +263,7 @@ export default function Home() {
         </section>
       </div>
 
-      {/* BLOCK 5: DEEP BLUE - Testimonials */}
-      <div className="block block-deep" data-scroll-reveal>
-        <div className="grid-bg"></div>
-        <div className="orb orb-dark-cyan" style={{ width: 400, height: 400, top: -100, left: '30%' }}></div>
-        <div className="orb orb-dark-purple" style={{ width: 300, height: 300, bottom: 0, right: '10%' }}></div>
-
-        <section>
-          <div className="container split">
-            <div>
-              <span className="tag-pill">Reference</span>
-              <h2>
-                Co říkají<br />naši<br /><span className="gradient-text-light">zákazníci.</span>
-              </h2>
-              <p className="lead" style={{ marginTop: '1.5rem' }}>
-                Hodnocení našich spokojených zákazníků — od dětských oslav po firemní eventy.
-              </p>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              {[
-                { text: 'VR brýle jsme měli zapůjčené na víkend. Pro děti i pro mého hravého manžela to byl nezapomenutelný zážitek.', author: 'LUCIE R.' },
-                { text: 'Na svatbě jsme měli VR kiosek a hosté se u něj bavili celý večer. Fotky s headsetem jsou teď nejsdílenější ze svatby.', author: 'JANA A PETR' },
-                { text: 'Syn měl 10. narozeniny a VR byla naprostý hit. Děti se střídaly a bavily se celé 3 hodiny.', author: 'PETRA K.' },
-              ].map((t, i) => (
-                <div key={i} style={{ paddingTop: '1.25rem', borderTop: '1px solid rgba(255, 255, 255, 0.2)' }}>
-                  <p style={{ fontSize: '0.95rem', lineHeight: 1.55, marginBottom: '0.6rem', color: 'rgba(224, 236, 255, 0.92)' }}>
-                    "{t.text}"
-                  </p>
-                  <span style={{ fontSize: '0.7rem', letterSpacing: '0.2em', fontWeight: 700, color: 'rgba(224, 236, 255, 0.75)' }}>
-                    {t.author}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {/* BLOCK 6: SKY - Final CTA */}
+      {/* BLOCK 5: SKY - Final CTA */}
       <div className="block block-sky" data-scroll-reveal>
         <div className="orb orb-cyan" style={{ width: 300, height: 300, top: -50, right: '20%' }}></div>
         <div className="orb orb-purple" style={{ width: 250, height: 250, bottom: -50, left: '10%' }}></div>

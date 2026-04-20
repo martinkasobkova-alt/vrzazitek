@@ -16,7 +16,11 @@ export default function HeroVisual() {
           fill
           sizes="(max-width: 900px) 85vw, 280px"
           priority
-          style={{ objectFit: 'cover' }}
+          style={{
+            objectFit: 'cover',
+            /* Koláž má důležitý motiv nahoře — ukotčit k hornímu okraji, ať je vidět celá postava v kravatě */
+            objectPosition: 'center top',
+          }}
         />
         <div
           aria-hidden
