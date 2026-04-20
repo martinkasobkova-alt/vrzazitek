@@ -1,0 +1,896 @@
+/* =========================================
+   VRzazitek.cz - Light Futuristic Design
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Light background tones */
+  --bg-sky: linear-gradient(180deg, #eef4ff 0%, #dbe7fc 100%);
+  --bg-paper: linear-gradient(180deg, #f5f8ff 0%, #eef4ff 100%);
+  --bg-mint: linear-gradient(135deg, #e0f2fe 0%, #cffafe 50%, #dbeafe 100%);
+  --bg-deep: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #3730a3 100%);
+
+  --sky-light: #eef4ff;
+  --sky-mid: #dbe7fc;
+  --paper-light: #f5f8ff;
+  --mint-light: #e0f2fe;
+  --mint-mid: #cffafe;
+
+  /* Accent colors */
+  --cyan: #0891b2;
+  --cyan-light: #22d3ee;
+  --cyan-bright: #67e8f9;
+  --blue: #3b82f6;
+  --blue-dark: #1e40af;
+  --blue-deep: #1e3a8a;
+  --purple: #7c3aed;
+  --purple-light: #8b5cf6;
+
+  /* Text colors */
+  --text: #0a1428;
+  --text-on-dark: #e0ecff;
+  --text-dim: #475569;
+  --text-muted: #64748b;
+
+  /* Borders */
+  --border-light: rgba(59, 130, 246, 0.15);
+  --border-mid: rgba(59, 130, 246, 0.25);
+  --border-strong: rgba(59, 130, 246, 0.4);
+
+  --font: 'Space Grotesk', system-ui, sans-serif;
+
+  --container: 1200px;
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 24px;
+  --radius-pill: 100px;
+
+  --gradient-text: linear-gradient(135deg, #0891b2 0%, #3b82f6 50%, #7c3aed 100%);
+  --gradient-text-light: linear-gradient(135deg, #67e8f9 0%, #93c5fd 50%, #c4b5fd 100%);
+  --gradient-btn: linear-gradient(135deg, #0891b2, #3b82f6);
+  --gradient-btn-light: linear-gradient(135deg, #67e8f9, #3b82f6);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 80px; }
+
+body {
+  font-family: var(--font);
+  background: var(--sky-light);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Block backgrounds */
+.block { position: relative; overflow: hidden; }
+.block-sky { background: var(--bg-sky); color: var(--text); }
+.block-paper { background: var(--bg-paper); color: var(--text); }
+.block-mint { background: var(--bg-mint); color: var(--text); }
+.block-deep { background: var(--bg-deep); color: var(--text-on-dark); }
+
+/* Decorative orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+.orb-cyan { background: rgba(34, 211, 238, 0.35); }
+.orb-blue { background: rgba(59, 130, 246, 0.3); }
+.orb-purple { background: rgba(139, 92, 246, 0.25); }
+.orb-dark-cyan { background: rgba(34, 211, 238, 0.5); }
+.orb-dark-purple { background: rgba(139, 92, 246, 0.4); }
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+.block-deep .grid-bg {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.1) 1px, transparent 1px);
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: inherit;
+}
+h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+h2 { font-size: clamp(2rem, 5vw, 3.25rem); margin-bottom: 1.25rem; }
+h3 { font-size: clamp(1.1rem, 1.8vw, 1.25rem); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.gradient-text-light {
+  background: var(--gradient-text-light);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--cyan);
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, currentColor);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  background: rgba(14, 165, 233, 0.1);
+  color: #0369a1;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+}
+.block-deep .tag-pill {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--cyan-bright);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+section {
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  position: relative;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .split { grid-template-columns: 1fr; }
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--gradient-btn);
+  color: #fff;
+  box-shadow: 0 4px 24px rgba(59, 130, 246, 0.35);
+}
+.btn-primary:hover {
+  box-shadow: 0 6px 30px rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--blue-dark);
+  border: 1px solid var(--border-mid);
+}
+.btn-ghost:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--border-strong);
+}
+.block-deep .btn-primary {
+  background: var(--gradient-btn-light);
+  color: var(--text);
+}
+.block-deep .btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-on-dark);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Cards */
+.svc-card {
+  padding: 1.75rem 1.5rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.06);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan-light), var(--blue), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.svc-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.12);
+  border-color: var(--border-strong);
+}
+.svc-card:hover::before { opacity: 1; }
+.svc-card .num {
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--cyan);
+  margin-bottom: 0.9rem;
+  font-weight: 600;
+}
+.svc-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+.block-deep .svc-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+.block-deep .svc-card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.block-deep .svc-card .num { color: var(--cyan-bright); }
+.block-deep .svc-card p { color: rgba(224, 236, 255, 0.8); }
+
+/* VR pro firmy – pilíře s fotkou pod textem */
+.pillar-card.svc-card {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  min-height: 26rem;
+  border-color: rgba(59, 130, 246, 0.22);
+}
+.pillar-card__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+}
+.pillar-card__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.42) 0%,
+    rgba(15, 23, 42, 0.52) 45%,
+    rgba(15, 23, 42, 0.72) 100%
+  );
+}
+.pillar-card__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 26rem;
+  padding: 1.75rem 1.5rem;
+  color: #f1f5f9;
+}
+.pillar-card__body .num {
+  color: #67e8f9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.pillar-card__body h3 {
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.pillar-card__body p {
+  color: rgba(241, 245, 249, 0.94);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+.pillar-card__body li {
+  color: rgba(241, 245, 249, 0.92);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.pillar-card__body li span:first-child {
+  color: #22d3ee;
+}
+
+/* Homepage – 3 služby jako čtverce s fotkou a textem */
+.home-svc-tile.pillar-card.svc-card {
+  min-height: unset;
+  aspect-ratio: 1;
+  width: 100%;
+  max-height: min(92vw, 380px);
+  margin-inline: auto;
+}
+.home-svc-tile .pillar-card__body {
+  min-height: 0;
+  height: 100%;
+}
+.home-svc-tile__cta {
+  margin-top: auto;
+  padding-top: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #67e8f9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Oslavy VR – příležitosti (fotka + přechod + text jako u pilířů) */
+.occasion-tile.pillar-card.svc-card {
+  min-height: unset;
+  aspect-ratio: 1;
+  width: 100%;
+  max-height: min(100vw, 340px);
+  margin-inline: auto;
+}
+.occasion-tile .pillar-card__body {
+  min-height: 0;
+  height: 100%;
+  justify-content: flex-end;
+  padding: 1.35rem 1.25rem;
+}
+
+/* Reference logos – nekonečný posuv (stejné logo sady 2× pro seamless loop) */
+.logo-marquee {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.logo-marquee__label {
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(224, 236, 255, 0.55);
+  margin-bottom: 1.25rem;
+}
+.logo-marquee__viewport {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.logo-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: logo-marquee-scroll 42s linear infinite;
+  will-change: transform;
+}
+.logo-marquee__track:hover {
+  animation-play-state: paused;
+}
+.logo-marquee__group {
+  display: flex;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  padding-right: clamp(2rem, 5vw, 3.5rem);
+  flex-shrink: 0;
+}
+.logo-marquee__item {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  min-height: 52px;
+}
+.logo-marquee__img {
+  width: auto !important;
+  height: 48px !important;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: 0.94;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+@keyframes logo-marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee__track {
+    animation: none;
+    transform: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    row-gap: 1.25rem;
+  }
+  .logo-marquee__group {
+    padding-right: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .logo-marquee__group[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+/* Media cards */
+.media-card {
+  aspect-ratio: 1.1;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 50%, #c7d2fe 100%);
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+}
+.media-card-dark {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--blue-dark), var(--purple));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(59, 130, 246, 0.25);
+}
+.media-card-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.5), transparent 50%);
+}
+
+/* Stats */
+.stat-item {
+  padding-left: 0.9rem;
+  border-left: 2px solid;
+  border-image: linear-gradient(180deg, var(--cyan), transparent) 1;
+}
+.stat-val {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: var(--gradient-btn);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-lbl {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.block-deep .stat-val {
+  background: var(--gradient-text-light);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.block-deep .stat-lbl { color: rgba(224, 236, 255, 0.65); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.fade-in { animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; }
+
+/* Homepage hero – vstup při načtení (bez scrollu) */
+@keyframes heroIntroIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes heroOrbFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.hero-intro-item {
+  opacity: 0;
+  animation: heroIntroIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-intro-item--1 { animation-delay: 0.04s; }
+.hero-intro-item--2 { animation-delay: 0.1s; }
+.hero-intro-item--3 { animation-delay: 0.18s; }
+.hero-intro-item--4 { animation-delay: 0.26s; }
+.hero-intro-item--5 { animation-delay: 0.34s; }
+.hero-intro-item--6 { animation-delay: 0.42s; }
+.hero-intro-item--7 { animation-delay: 0.5s; }
+.hero-intro-item--8 { animation-delay: 0.56s; }
+.hero-intro-visual {
+  opacity: 0;
+  animation: heroIntroIn 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.14s both;
+}
+.hero-orb-in {
+  animation: heroOrbFadeIn 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-orb-in--a { animation-delay: 0.06s; }
+.hero-orb-in--b { animation-delay: 0.14s; }
+.hero-orb-in--c { animation-delay: 0.22s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-intro-item,
+  .hero-intro-visual {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-orb-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+ * Scroll reveal: před hydratací / bez sr-enabled jsou sekce plně vidět (žádný prázdný FOUC).
+ * Po zapnutí html.sr-enabled skryjeme jen bloky bez .is-revealed; ScrollRevealProvider je přidá při scrollu.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.sr-enabled) [data-scroll-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  html.sr-enabled [data-scroll-reveal]:not(.is-revealed) {
+    opacity: 0;
+    transform: translate3d(0, 1.75rem, 0);
+  }
+
+  html.sr-enabled [data-scroll-reveal].is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition:
+      opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* Hero – úvodní animace kruhu (homepage) */
+@keyframes heroVisualEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Úvodní „roztočení“ soustavy kruhů (střed s fotkou zůstává v klidu) */
+@keyframes heroRingsKick {
+  0% {
+    opacity: 0.35;
+    transform: rotate(-72deg) scale(0.88);
+  }
+  45% {
+    opacity: 1;
+    transform: rotate(420deg) scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(720deg) scale(1);
+  }
+}
+@keyframes heroRingBreath {
+  0%, 100% { border-color: rgba(14, 165, 233, 0.45); }
+  50% { border-color: rgba(34, 211, 238, 0.95); }
+}
+@keyframes heroRingBreath2 {
+  0%, 100% { border-color: rgba(59, 130, 246, 0.5); }
+  50% { border-color: rgba(147, 197, 253, 0.95); }
+}
+@keyframes heroRingBreath3 {
+  0%, 100% { border-color: rgba(139, 92, 246, 0.5); }
+  50% { border-color: rgba(196, 181, 253, 0.92); }
+}
+@keyframes heroRingGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0), 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+  50% {
+    box-shadow:
+      0 0 22px 4px rgba(34, 211, 238, 0.4),
+      0 0 42px 8px rgba(59, 130, 246, 0.2);
+  }
+}
+@keyframes heroRingGlow2 {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0); }
+  50% { box-shadow: 0 0 26px 5px rgba(96, 165, 250, 0.38); }
+}
+@keyframes heroRingGlow3 {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(167, 139, 250, 0); }
+  50% { box-shadow: 0 0 24px 4px rgba(167, 139, 250, 0.35); }
+}
+
+/* Hero rings */
+.hero-visual {
+  position: relative;
+  aspect-ratio: 1;
+  max-width: 420px;
+  margin-left: auto;
+  animation: heroVisualEnter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.16s both;
+}
+.hero-visual__rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: heroRingsKick 1.2s cubic-bezier(0.2, 0.95, 0.25, 1) 0.12s both;
+}
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+.ring-1 {
+  border: 2px solid rgba(14, 165, 233, 0.55);
+  animation:
+    spin 11s linear infinite,
+    heroRingBreath 2.8s ease-in-out infinite,
+    heroRingGlow 2.8s ease-in-out infinite;
+}
+.ring-2 {
+  inset: 8%;
+  border: 2px solid rgba(59, 130, 246, 0.58);
+  animation:
+    spin 9s linear infinite reverse,
+    heroRingBreath2 3.2s ease-in-out infinite 0.15s,
+    heroRingGlow2 3.2s ease-in-out infinite 0.15s;
+}
+.ring-3 {
+  inset: 16%;
+  border: 2px dashed rgba(139, 92, 246, 0.58);
+  animation:
+    spin 13s linear infinite,
+    heroRingBreath3 3.6s ease-in-out infinite 0.28s,
+    heroRingGlow3 3.6s ease-in-out infinite 0.28s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual {
+    animation: none;
+  }
+  .hero-visual__rings {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .ring-1,
+  .ring-2,
+  .ring-3 {
+    animation: none;
+    opacity: 0.95;
+  }
+}
+.hero-center {
+  position: absolute;
+  inset: 25%;
+  z-index: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #dbeafe 0%, #bfdbfe 70%);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 40px rgba(34, 211, 238, 0.3), 0 0 60px rgba(59, 130, 246, 0.25);
+  overflow: hidden;
+}
+
+/* FAQ details */
+details summary::-webkit-details-marker { display: none; }
+details summary { user-select: none; cursor: pointer; }
+details[open] summary > .plus { transform: rotate(45deg); color: var(--cyan); }
+details summary > .plus {
+  transition: all 0.25s ease;
+  display: inline-block;
+  color: var(--blue);
+  font-size: 1.3rem;
+  margin-left: 1rem;
+}
+
+/* Pricing */
+.price-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--border-light);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.price-card-cta {
+  margin-top: auto;
+  align-self: stretch;
+  width: 100%;
+  justify-content: center;
+}
+.price-card.featured {
+  background: linear-gradient(180deg, rgba(8, 145, 178, 0.06), rgba(124, 58, 237, 0.04));
+  border-color: var(--border-strong);
+  box-shadow: 0 8px 40px rgba(59, 130, 246, 0.15);
+}
+.price-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 1rem;
+  background: var(--gradient-btn);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.price-val {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--gradient-btn);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+/* Utilities */
+.text-dim { color: var(--text-dim); }
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.lead { font-size: clamp(0.95rem, 1.3vw, 1.05rem); color: var(--text-dim); max-width: 480px; line-height: 1.65; }
+.block-deep .lead { color: rgba(224, 236, 255, 0.85); }
+
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+
+/* Oslavy – reference: 4 karty v jednom řádku na desktopu (grid-2 by kvůli minmax(280px) zalomil 3+1) */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.65rem, 1.2vw, 1rem);
+  align-items: stretch;
+}
+.testimonials-grid .testimonial-card.svc-card {
+  padding: 1.1rem 0.95rem;
+}
+.testimonials-grid .testimonial-card .testimonial-stars {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+.testimonials-grid .testimonial-card .testimonial-quote {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+}
+.testimonials-grid .testimonial-card .testimonial-name {
+  font-size: 0.8rem;
+}
+.testimonials-grid .testimonial-card .testimonial-occasion {
+  font-size: 0.72rem;
+}
+@media (max-width: 1050px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+
+/* Teambuilding – 4 VR aktivity v jedné řadě (desktop) */
+.grid-activities {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.25rem;
+  align-items: stretch;
+}
+@media (max-width: 1050px) {
+  .grid-activities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .grid-activities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  section { padding: 3.5rem 0; }
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+}
