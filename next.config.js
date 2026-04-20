@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   /** Shodné s produkčním Webnode (canonical URL s lomítkem na konci). */
   trailingSlash: true,
+  /** Nepřidávat redirects() pro /en → /en/: s trailingSlash to v Next 14 dělá framework a vlastní pravidlo způsobilo nekonečnou 308 smyčku na /en/. */
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: '3f0d647b7d.clvaw-cdnwnd.com' },
@@ -19,8 +20,6 @@ const nextConfig = {
       { source: '/dekujeme', destination: '/', permanent: true },
       { source: '/obchodni-podminky', destination: '/', permanent: true },
       { source: '/ochrana-osobnich-udaju', destination: '/', permanent: true },
-      /** Anglické URL obsluhuje Next — nechat indexovatelné (stejné cesty jako dříve na Webnode). */
-      { source: '/en', destination: '/en/', permanent: true },
     ];
   },
 };
