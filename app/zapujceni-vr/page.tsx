@@ -138,7 +138,7 @@ export default function Zapujceni() {
               >
                 <div className="stat-item">
                   <div className="stat-val">1000+</div>
-                  <div className="stat-lbl">Realizovaných eventů</div>
+                  <div className="stat-lbl">Spokojených klientů</div>
                 </div>
                 <div className="stat-item">
                   <div className="stat-val">Stovky</div>

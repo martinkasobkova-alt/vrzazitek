@@ -141,7 +141,7 @@ export default function VrHomeEn() {
               >
                 <div className="stat-item">
                   <div className="stat-val">1000+</div>
-                  <div className="stat-lbl">Events delivered</div>
+                  <div className="stat-lbl">Satisfied clients</div>
                 </div>
                 <div className="stat-item">
                   <div className="stat-val">Hundreds</div>
