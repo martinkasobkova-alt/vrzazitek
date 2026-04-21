@@ -70,9 +70,9 @@ export default function ScrollRevealProvider({ children }: { children: React.Rea
       },
       {
         root: null,
-        // Mírně rozšířený root → odhalení těsně předtím, než je blok úplně uvnitř (při scrollu dolů/nahoru)
-        rootMargin: '10% 0px 14% 0px',
-        threshold: [0, 0.02, 0.08],
+        // Rozšířený root → sekce začne „najíždět“ dřív, než je celá ve viewportu (přirozenější při scrollu)
+        rootMargin: '8% 0px 22% 0px',
+        threshold: [0, 0.02, 0.06],
       }
     );
 

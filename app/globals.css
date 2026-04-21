@@ -940,7 +940,8 @@ section {
 
 /*
  * Scroll reveal: před hydratací / bez sr-enabled jsou sekce plně vidět (žádný prázdný FOUC).
- * [data-scroll-reveal] = celé sekce; [data-sr] = karty / podbloky (stejná animace, jiný účel v HTML).
+ * [data-scroll-reveal] = celé bloky — výraznější „najetí“ při scrollu;
+ * [data-sr] = karty / podbloky — kratší posun, kaskáda přes data-sr-delay.
  */
 @media (prefers-reduced-motion: no-preference) {
   html:not(.sr-enabled) [data-scroll-reveal],
@@ -949,19 +950,30 @@ section {
     transform: none;
   }
 
-  html.sr-enabled [data-scroll-reveal]:not(.is-revealed),
-  html.sr-enabled [data-sr]:not(.is-revealed) {
+  html.sr-enabled [data-scroll-reveal]:not(.is-revealed) {
     opacity: 0;
-    transform: translate3d(0, 0.7rem, 0);
+    transform: translate3d(0, clamp(1.75rem, 4.5vw, 3rem), 0) scale(0.985);
   }
 
-  html.sr-enabled [data-scroll-reveal].is-revealed,
+  html.sr-enabled [data-sr]:not(.is-revealed) {
+    opacity: 0;
+    transform: translate3d(0, clamp(1rem, 2.8vw, 1.75rem), 0);
+  }
+
+  html.sr-enabled [data-scroll-reveal].is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    transition:
+      opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   html.sr-enabled [data-sr].is-revealed {
     opacity: 1;
     transform: translate3d(0, 0, 0);
     transition:
-      opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 
